@@ -1,143 +1,109 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Defter Kasa Gizlilik Politikasi</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f6f8fc;
-      --card: #ffffff;
-      --text: #10213a;
-      --muted: #5d6b82;
-      --line: #d9e1ee;
-      --accent: #1fa7d8;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
-      color: var(--text);
-      line-height: 1.65;
-    }
-    .wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 32px 20px 56px;
-    }
-    .hero, .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: 0 10px 30px rgba(16, 33, 58, 0.06);
-    }
-    .hero {
-      padding: 28px;
-      margin-bottom: 18px;
-    }
-    .eyebrow {
-      margin: 0 0 8px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    h1 {
-      margin: 0;
-      font-size: 34px;
-      line-height: 1.15;
-    }
-    .updated {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .grid {
-      display: grid;
-      gap: 16px;
-    }
-    .card {
-      padding: 22px;
-    }
-    h2 {
-      margin: 0 0 12px;
-      font-size: 20px;
-    }
-    p, li {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-    ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-    strong {
-      color: var(--text);
-    }
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Defter Kasa | Gizlilik Politikası</title>
+  <meta
+    name="description"
+    content="Defter Kasa uygulaması için gizlilik politikası, veri işleme yaklaşımı ve iletişim bilgileri."
+  />
+  <meta name="theme-color" content="#efe6d9" />
+  <link rel="stylesheet" href="privacy.css" />
 </head>
-<body>
-  <main class="wrap">
-    <section class="hero">
-      <p class="eyebrow">Gizlilik Politikasi</p>
-      <h1>Defter Kasa</h1>
-      <p class="updated">Son guncelleme: 18 Mart 2026</p>
+<body class="privacy-page">
+  <header class="privacy-shell">
+    <a class="back-link" href="index.html">Ana sayfaya dön</a>
+    <a class="lang-toggle" href="defter-kasa-privacy-policy.html" lang="en" aria-label="Switch to English">EN</a>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span class="theme-toggle-dot" aria-hidden="true"></span>
+      <span data-theme-label>Görünüm: Açık</span>
+    </button>
+  </header>
+
+  <main class="privacy-layout">
+    <section class="privacy-hero">
+      <div class="privacy-brand">
+        <span class="privacy-mark">
+          <img src="images/defter-kasa.webp" alt="Defter Kasa uygulama ikonu" />
+        </span>
+        <div>
+          <p class="eyebrow">Gizlilik Politikası</p>
+          <h1>Defter Kasa</h1>
+          <p class="updated">Son güncelleme: 23 Mart 2026</p>
+        </div>
+      </div>
+
+      <p class="hero-text">
+        Defter Kasa, işletme ve müşteri kayıtlarını daha düzenli takip etmeyi hedefleyen bir cari takip uygulamasıdır.
+        Bu politika; uygulama kullanılırken hangi bilgilere erişildiğini, bu bilgilerin nasıl işlendiğini ve izinlerin
+        hangi amaçla kullanıldığını açıklar.
+      </p>
     </section>
-    <section class="grid">
-      <article class="card">
-        <h2>Genel Bilgilendirme</h2>
-        <p>Defter Kasa, isletme ve musteri kayitlarinizi yonetmenize yardimci olan bir cari takip uygulamasidir. Bu politika, uygulamayi kullanirken hangi bilgilere erisildigini, bu bilgilerin nasil islendigini ve hangi izinlerin ne amacla kullanildigini aciklar.</p>
+
+    <section class="policy-grid">
+      <article class="policy-card">
+        <h2>Genel yaklaşım</h2>
+        <p>
+          Defter Kasa, kullanıcı tarafından oluşturulan işletme, müşteri, borç, ödeme ve not kayıtlarını yönetmek için tasarlanmıştır.
+          Amaç, günlük iş takibini hızlı ve anlaşılır tutmaktır.
+        </p>
       </article>
-      <article class="card">
-        <h2>Toplanan ve Saklanan Bilgiler</h2>
+
+      <article class="policy-card">
+        <h2>Toplanan ve saklanan bilgiler</h2>
         <ul>
-          <li>Uygulama icinde eklediginiz isletme, musteri, borc, odeme, not ve benzeri kayitlar cihazinizda yerel olarak saklanir.</li>
-          <li>Yedek alma veya geri yukleme islemlerinde sectiginiz dosyalar yalnizca bu islemleri gerceklestirmek icin kullanilir.</li>
-          <li>Uygulama normal kullanim sirasinda kredi karti bilgilerinizi toplamaz veya saklamaz.</li>
-          <li>Abonelik ve odeme islemleri Google Play altyapisi uzerinden yurutulur.</li>
+          <li>Uygulama içinde oluşturduğunuz kayıtlar cihazınızda yerel olarak saklanır.</li>
+          <li>Yedek alma veya geri yükleme sırasında seçtiğiniz dosyalar yalnızca bu işlemleri gerçekleştirmek için kullanılır.</li>
+          <li>Kredi kartı bilgileri rutin uygulama kullanımı kapsamında toplanmaz veya saklanmaz.</li>
         </ul>
       </article>
-      <article class="card">
-        <h2>Kamera ve Fotograf Erisimi</h2>
+
+      <article class="policy-card">
+        <h2>Kamera ve görsel erişimi</h2>
         <ul>
-          <li>Kamera izni yalnizca sizin acik seciminizle fotograf cekebilmeniz icin kullanilir.</li>
-          <li>Galeri veya dosya secme erisimi, musteri veya islem kayitlarina gorsel eklemek istediginizde kullanilir.</li>
-          <li>Kamera ya da galeriden sectiginiz gorseller, ilgili kayitlarla iliskilendirilmek uzere cihazinizda saklanir.</li>
+          <li>Kamera izni yalnızca sizin açık tercihinizle fotoğraf çekebilmeniz için kullanılır.</li>
+          <li>Galeri veya dosya seçme erişimi, kayıtlara görsel eklemek istediğiniz durumlarda devreye girer.</li>
+          <li>Seçtiğiniz görseller ilgili kayıtlarla ilişkilendirilmek üzere cihazınızda saklanır.</li>
         </ul>
       </article>
-      <article class="card">
-        <h2>Bildirimler ve Cihaz Ozellikleri</h2>
+
+      <article class="policy-card">
+        <h2>Bildirimler ve güvenlik</h2>
         <ul>
-          <li>Bildirim izni, vadesi gelen ya da yaklasan kayitlar icin hatirlatma gondermek amaciyla kullanilir.</li>
-          <li>PIN ve biyometrik kilit ozellikleri, cihazinizda uygulamaya ek guvenlik saglamak icin kullanilir.</li>
+          <li>Bildirim izni, yaklaşan veya vadesi gelen kayıtlar için hatırlatma göndermek amacıyla kullanılabilir.</li>
+          <li>PIN veya biyometrik kilit gibi güvenlik özellikleri, cihazınızdaki uygulama erişimini korumak için kullanılır.</li>
         </ul>
       </article>
-      <article class="card">
-        <h2>Veri Paylasimi</h2>
+
+      <article class="policy-card">
+        <h2>Ödeme ve platform hizmetleri</h2>
         <ul>
-          <li>G-Soft, uygulama icinde tuttugunuz ticari kayitlari rutin kullanim kapsaminda kendi sunucularina aktarmayi amaclamaz.</li>
-          <li>Abonelik, uygulama magazasi, cihaz isletim sistemi veya yedekleme/paylasim akislarinda ilgili platform saglayicilarinin kendi gizlilik politikalari gecerli olabilir.</li>
-          <li>Kisisel verileriniz satilmaz.</li>
+          <li>Abonelik veya ödeme işlemleri sunuluyorsa bunlar Google Play altyapısı üzerinden yürütülür.</li>
+          <li>Mağaza, işletim sistemi veya seçilen yedekleme kanalları kendi gizlilik politikalarını ayrıca uygulayabilir.</li>
         </ul>
       </article>
-      <article class="card">
-        <h2>Iletisim</h2>
-        <p>Gizlilik politikasi ile ilgili sorulariniz icin bize ulasabilirsiniz:</p>
-        <p><strong>E-posta:</strong> <a href="mailto:G-soft@outlook.com.tr">G-soft@outlook.com.tr</a></p>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/905395250610">0539 525 06 10</a></p>
+
+      <article class="policy-card">
+        <h2>Veri paylaşımı</h2>
+        <ul>
+          <li>G-Soft, rutin kullanım kapsamında ticari kayıtları kendi sunucularına aktarmayı amaçlamaz.</li>
+          <li>Kişisel verileriniz satılmaz.</li>
+          <li>Yasal zorunluluklar veya sizin açık işlemleriniz dışında veri paylaşımı hedeflenmez.</li>
+        </ul>
+      </article>
+
+      <article class="policy-card policy-card-wide">
+        <h2>İletişim</h2>
+        <p>Bu politika ile ilgili sorularınız için aşağıdaki kanalları kullanabilirsiniz.</p>
+        <div class="contact-list">
+          <a href="mailto:g-soft@outlook.com.tr">g-soft@outlook.com.tr</a>
+          <a href="https://github.com/altusparati" target="_blank" rel="noopener noreferrer">GitHub: altusparati</a>
+        </div>
       </article>
     </section>
   </main>
+
+  <script src="scripts.js"></script>
 </body>
 </html>

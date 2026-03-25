@@ -1,0 +1,337 @@
+:root {
+  color-scheme: light;
+  --bg-top: #f7f1e8;
+  --bg: #efe6d9;
+  --bg-bottom: #f4ede3;
+  --bg-glow-1: rgba(15, 136, 151, 0.14);
+  --bg-glow-2: rgba(218, 139, 86, 0.12);
+  --grid-line: rgba(32, 54, 77, 0.05);
+  --surface: #fffdfa;
+  --surface-soft: #fbf7f0;
+  --surface-strong: #ffffff;
+  --ink: #20364d;
+  --ink-soft: #667b91;
+  --line: #dbe2e8;
+  --line-strong: #c9d3dc;
+  --accent: #0f8897;
+  --accent-strong: #0b6674;
+  --accent-soft: rgba(15, 136, 151, 0.12);
+  --warm: #da8b56;
+  --shadow: 0 14px 34px rgba(32, 54, 77, 0.08);
+  --shadow-soft: 0 8px 18px rgba(32, 54, 77, 0.06);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-top: #0d1723;
+  --bg: #101b29;
+  --bg-bottom: #0b1420;
+  --bg-glow-1: rgba(78, 208, 220, 0.12);
+  --bg-glow-2: rgba(242, 165, 109, 0.1);
+  --grid-line: rgba(214, 229, 244, 0.04);
+  --surface: #142231;
+  --surface-soft: #18293a;
+  --surface-strong: #1b3043;
+  --ink: #edf4fb;
+  --ink-soft: #a9b8c7;
+  --line: #253849;
+  --line-strong: #31485d;
+  --accent: #4ed0dc;
+  --accent-strong: #86e5f1;
+  --accent-soft: rgba(78, 208, 220, 0.14);
+  --warm: #f2a56d;
+  --shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+  --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Aptos", "Segoe UI", Tahoma, Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+  background:
+    radial-gradient(circle at top left, var(--bg-glow-1), transparent 28%),
+    radial-gradient(circle at 85% 12%, var(--bg-glow-2), transparent 24%),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 44%, var(--bg-bottom) 100%);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.18), transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.privacy-shell,
+.privacy-layout {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.privacy-shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 20px 0 10px;
+}
+
+.back-link,
+.theme-toggle,
+.lang-toggle {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+}
+
+.theme-toggle,
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.theme-toggle-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--warm));
+  flex-shrink: 0;
+}
+
+.privacy-layout {
+  display: grid;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.privacy-hero,
+.policy-card {
+  border-radius: 30px;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 250, 0.92);
+  box-shadow: var(--shadow);
+}
+
+:root[data-theme="dark"] .privacy-hero,
+:root[data-theme="dark"] .policy-card {
+  background: rgba(20, 34, 49, 0.94);
+}
+
+.privacy-hero {
+  padding: 28px;
+}
+
+.privacy-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.privacy-mark {
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  flex-shrink: 0;
+}
+
+.privacy-mark img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Bahnschrift", "Segoe UI", Arial, sans-serif;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+}
+
+.updated,
+.hero-text,
+.policy-card p,
+.policy-card li {
+  color: var(--ink-soft);
+}
+
+.updated {
+  margin: 10px 0 0;
+}
+
+.hero-text {
+  margin: 20px 0 0;
+  max-width: 64ch;
+  font-size: 1.02rem;
+}
+
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.policy-card {
+  padding: 24px;
+}
+
+.policy-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+}
+
+.policy-card p,
+.policy-card li {
+  margin: 0;
+}
+
+.policy-card ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.policy-card-wide {
+  grid-column: 1 / -1;
+}
+
+.contact-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.contact-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 16px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 860px) {
+  .policy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .policy-card-wide {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  body::before {
+    background-size: 26px 26px;
+  }
+
+  .privacy-shell,
+  .privacy-layout {
+    width: min(980px, calc(100% - 20px));
+  }
+
+  .privacy-shell {
+    padding-top: 12px;
+  }
+
+  .back-link,
+  .theme-toggle,
+  .lang-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .privacy-brand {
+    align-items: flex-start;
+  }
+
+  .privacy-mark {
+    width: 70px;
+    height: 70px;
+  }
+
+  .privacy-mark img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .privacy-hero,
+  .policy-card {
+    padding: 20px;
+  }
+
+  .contact-list a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
