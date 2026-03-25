@@ -239,6 +239,11 @@ img {
 }
 
 #uygulamalar,
+#uygulama-listesi,
+#oyun-listesi,
+#app-list,
+#game-list,
+#support,
 #yaklasim,
 #destek,
 #iletisim {
@@ -321,13 +326,26 @@ img {
 .menu a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
   color: var(--ink-soft);
-  transition: background 0.2s ease, color 0.2s ease;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .menu a:hover {
   color: var(--ink);
   background: var(--accent-soft);
+  border-color: var(--line-strong);
+}
+
+.menu a.is-current,
+.menu a[aria-current="page"] {
+  color: var(--ink);
+  background: var(--accent-soft);
+  border-color: rgba(11, 142, 160, 0.28);
+  box-shadow: var(--shadow-soft);
 }
 
 .theme-toggle,

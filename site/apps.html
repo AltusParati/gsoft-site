@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>G-SOFT | Apps and Digital Projects</title>
+  <title>G-SOFT | Our Apps</title>
   <meta
     name="description"
-    content="G-SOFT apps, game projects, store links, and support pages in one place."
+    content="G-SOFT apps, store links, support flow, and privacy pages in one place."
   />
   <meta name="theme-color" content="#e7eef6" />
   <script>document.documentElement.classList.add('js-ready');</script>
@@ -26,7 +26,7 @@
   <div class="topbar-shell">
     <div class="container">
       <header class="topbar" data-reveal>
-        <a class="brand" href="#top" aria-label="G-SOFT home page">
+        <a class="brand" href="index-en.html" aria-label="G-SOFT home page">
           <span class="brand-mark">
             <img src="images/logo1.png" alt="G-SOFT logo" />
           </span>
@@ -38,11 +38,11 @@
 
         <div class="topbar-tools">
           <nav class="menu menu-product-nav" aria-label="Product pages">
-            <a href="apps.html">Our Apps</a>
+            <a class="is-current" href="apps.html" aria-current="page">Our Apps</a>
             <a href="games.html">Our Games</a>
           </nav>
 
-          <a class="lang-toggle" href="index.html" lang="tr" aria-label="Türkçe sayfaya geç">TR</a>
+          <a class="lang-toggle" href="uygulamalarimiz.html" lang="tr" aria-label="Turkish page">TR</a>
 
           <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
             <span class="theme-toggle-dot" aria-hidden="true"></span>
@@ -57,32 +57,32 @@
     <section class="hero container">
       <div class="hero-grid">
         <article class="hero-copy" data-reveal>
-          <p class="eyebrow">G-SOFT</p>
-          <h1>Apps, games, and support pages in one place.</h1>
+          <p class="eyebrow">Our Apps</p>
+          <h1>Published apps and upcoming software products in one place.</h1>
           <p class="hero-lede">
-            Product details, release notes, store links, and privacy documents are collected on a single screen.
-            New releases, upcoming projects, and important updates are shared here regularly.
+            G-SOFT apps, release status, privacy documents, and future store links are collected here.
+            As new software products are added, this page will continue to grow as the dedicated app catalog.
           </p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="apps.html">Our Apps</a>
-            <a class="button button-secondary" href="games.html">Our Games</a>
+            <a class="button button-primary" href="#app-list">Open app list</a>
+            <a class="button button-secondary" href="index-en.html">Back to home</a>
           </div>
 
-          <ul class="hero-points" aria-label="Highlights">
-            <li>Fast access to store and support links</li>
-            <li>Up-to-date privacy and documentation space for every product</li>
-            <li>One place for new projects, releases, and update notes</li>
+          <ul class="hero-points" aria-label="App page highlights">
+            <li>A dedicated product view for published apps</li>
+            <li>Direct access to support and privacy pages</li>
+            <li>Ready space for future software releases</li>
           </ul>
         </article>
 
         <aside class="hero-panel" data-reveal>
           <div class="panel-head">
             <div>
-              <p class="panel-kicker">Highlights</p>
-              <h2>G-SOFT ecosystem</h2>
+              <p class="panel-kicker">Product status</p>
+              <h2>Published apps</h2>
             </div>
-            <span class="status-chip is-live">Updated</span>
+            <span class="status-chip is-live">Active</span>
           </div>
 
           <div class="hero-showcase" aria-hidden="true">
@@ -93,8 +93,8 @@
                   <span></span>
                   <span></span>
                 </div>
-                <span class="terminal-title">gsoft-stack</span>
-                <span class="terminal-env">deploy-ready</span>
+                <span class="terminal-title">gsoft-apps</span>
+                <span class="terminal-env">release-ready</span>
               </div>
               <div class="terminal-body">
                 <div class="code-stack">
@@ -106,45 +106,45 @@
                 </div>
                 <div class="terminal-cards">
                   <div class="metric-card">
-                    <span>build</span>
-                    <strong>stable</strong>
+                    <span>platform</span>
+                    <strong>android</strong>
                   </div>
                   <div class="metric-card">
                     <span>privacy</span>
-                    <strong>ready</strong>
+                    <strong>linked</strong>
                   </div>
                   <div class="metric-card">
-                    <span>release</span>
-                    <strong>tracked</strong>
+                    <span>support</span>
+                    <strong>ready</strong>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="float-chip chip-one">API</div>
+            <div class="float-chip chip-one">ANDROID</div>
             <div class="float-chip chip-two">SYNC</div>
-            <div class="float-chip chip-three">ANDROID</div>
+            <div class="float-chip chip-three">TOOLS</div>
             <div class="mini-status mini-one">
               <span>live product</span>
-              <strong>featured</strong>
+              <strong>ready</strong>
             </div>
             <div class="mini-status mini-two">
               <span>docs</span>
-              <strong>updated</strong>
+              <strong>linked</strong>
             </div>
           </div>
 
           <div class="stat-grid">
-            <div class="stat-card">
-              <strong>02</strong>
-              <span>projects</span>
-            </div>
             <div class="stat-card">
               <strong>01</strong>
               <span>active app</span>
             </div>
             <div class="stat-card">
               <strong>01</strong>
-              <span>upcoming game</span>
+              <span>privacy page</span>
+            </div>
+            <div class="stat-card">
+              <strong>01</strong>
+              <span>next software slot</span>
             </div>
           </div>
 
@@ -158,43 +158,22 @@
               <span class="item-pill is-live">Live</span>
             </article>
 
-            <article class="launch-item">
-              <img src="images/logo1.png" alt="Anilar Muzesi placeholder artwork" />
-              <div class="launch-copy">
-                <strong>Anilar Muzesi</strong>
-                <span>A new project focused on atmosphere and story</span>
-              </div>
-              <span class="item-pill is-soon">Soon</span>
-            </article>
-
             <article class="launch-note">
-              <p>App pages, privacy texts, and support links are collected here in one place.</p>
+              <p>As new apps approach release, they will be added to this showcase with the related support links.</p>
             </article>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="tech-strip-section" aria-label="G-SOFT technical highlights">
-      <div class="tech-strip">
-        <span class="tech-chip">android</span>
-        <span class="tech-chip">build</span>
-        <span class="tech-chip">privacy</span>
-        <span class="tech-chip">release notes</span>
-        <span class="tech-chip">product updates</span>
-        <span class="tech-chip">support</span>
-        <span class="tech-chip">deploy</span>
-      </div>
-    </section>
-
-    <section id="uygulamalar" class="section container">
+    <section id="app-list" class="section container">
       <div class="section-head">
         <div>
-          <p class="section-kicker">Apps</p>
-          <h2 class="section-title">Current products</h2>
+          <p class="section-kicker">App catalog</p>
+          <h2 class="section-title">All apps</h2>
         </div>
         <p class="section-copy">
-          G-SOFT products, release status, and upcoming software projects are listed here.
+          Published apps, support areas, and privacy links are collected here in a single flow.
         </p>
       </div>
 
@@ -230,98 +209,34 @@
             </div>
           </div>
         </article>
-
-        <article class="product-card" data-reveal>
-          <div class="product-media story">
-            <div class="media-badge">Game / Atmosphere / Story</div>
-            <img src="images/logo1.png" alt="Anilar Muzesi placeholder artwork" />
-          </div>
-
-          <div class="product-body">
-            <div class="product-top">
-              <div>
-                <p class="product-label">Coming soon</p>
-                <h3>Anilar Muzesi</h3>
-              </div>
-              <span class="status-chip is-soon">Soon</span>
-            </div>
-
-            <p class="product-text">
-              A new experience built around discovery, curiosity, and narrative pace. More details will be added here as the release gets closer.
-            </p>
-
-            <ul class="feature-list">
-              <li>Story-driven progression with an atmospheric world</li>
-              <li>A ready space for release information and support</li>
-              <li>Visuals and store links can be added later with ease</li>
-            </ul>
-
-            <div class="product-actions">
-              <span class="button button-disabled" aria-disabled="true">Store link coming soon</span>
-              <a class="button button-secondary" href="anilar-muzesi-privacy-policy.html">Privacy policy</a>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
-    <section id="yaklasim" class="section container">
-      <div class="section-head">
-        <div>
-          <p class="section-kicker">Highlights</p>
-          <h2 class="section-title">Why G-SOFT?</h2>
-        </div>
-        <p class="section-copy">
-          Product details, release flow, support channels, and updates come together in a clear and focused layout.
-        </p>
-      </div>
-
-      <div class="feature-grid">
-        <article class="feature-card" data-reveal>
-          <span class="feature-index">01</span>
-          <h3>Fast access</h3>
-          <p>You can reach the right app, store page, and support link in just a few clicks.</p>
-        </article>
-
-        <article class="feature-card" data-reveal>
-          <span class="feature-index">02</span>
-          <h3>Clear information</h3>
-          <p>Each product presents its summary, privacy texts, and contact channels in a visible way.</p>
-        </article>
-
-        <article class="feature-card" data-reveal>
-          <span class="feature-index">03</span>
-          <h3>Fresh updates</h3>
-          <p>New projects, store links, and important announcements are shared here regularly.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="destek" class="section container">
+    <section id="support" class="section container">
       <div class="support-layout">
         <article class="support-card" data-reveal>
           <p class="section-kicker">Support</p>
-          <h2 class="section-title">Find the information you need quickly</h2>
+          <h2 class="section-title">Find what you need quickly on the app side</h2>
           <div class="step-list">
             <div class="step-item">
               <span class="step-no">01</span>
               <div>
                 <strong>Choose the app</strong>
-                <p>Find the product you are looking for directly from the cards above.</p>
+                <p>Find the product you need directly from this catalog.</p>
               </div>
             </div>
             <div class="step-item">
               <span class="step-no">02</span>
               <div>
-                <strong>Open the right page</strong>
-                <p>Use the relevant link for privacy details, store access, or product information.</p>
+                <strong>Open the right document</strong>
+                <p>Privacy policy and release information open directly from the related card.</p>
               </div>
             </div>
             <div class="step-item">
               <span class="step-no">03</span>
               <div>
                 <strong>Reach out</strong>
-                <p>For questions, feedback, or collaboration requests, use the channel that suits you best.</p>
+                <p>For support or collaboration requests, use the contact channels below.</p>
               </div>
             </div>
           </div>
@@ -331,7 +246,7 @@
           <p class="section-kicker">Contact</p>
           <h2 class="section-title">Support and contact</h2>
           <p class="section-copy">
-            Use the contact channels below for app-related questions, feedback, and collaboration offers.
+            Use the channels below for app-related questions, feedback, and collaboration offers.
           </p>
 
           <div class="contact-grid">
@@ -349,7 +264,7 @@
           </div>
 
           <div class="closing-banner">
-            <p>This page is updated regularly for new apps, releases, and announcements.</p>
+            <p>This page is updated regularly as new apps are added.</p>
             <a class="button button-primary" href="#top">Back to top</a>
           </div>
         </article>

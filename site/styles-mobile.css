@@ -211,10 +211,10 @@ img {
 }
 
 .topbar-shell {
-  position: sticky;
-  top: 12px;
-  z-index: 20;
-  padding-top: 16px;
+  position: static;
+  top: auto;
+  z-index: auto;
+  padding-top: 12px;
 }
 
 .topbar {
@@ -239,10 +239,15 @@ img {
 }
 
 #uygulamalar,
+#uygulama-listesi,
+#oyun-listesi,
+#app-list,
+#game-list,
+#support,
 #yaklasim,
 #destek,
 #iletisim {
-  scroll-margin-top: 124px;
+  scroll-margin-top: 32px;
 }
 
 .brand {
@@ -321,13 +326,25 @@ img {
 .menu a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
   color: var(--ink-soft);
-  transition: background 0.2s ease, color 0.2s ease;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .menu a:hover {
   color: var(--ink);
   background: var(--accent-soft);
+  border-color: var(--line-strong);
+}
+
+.menu a.is-current,
+.menu a[aria-current="page"] {
+  color: var(--ink);
+  background: var(--accent-soft);
+  border-color: rgba(11, 142, 160, 0.28);
 }
 
 .theme-toggle,
@@ -1339,11 +1356,22 @@ img {
 
   .topbar-tools {
     width: 100%;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    align-items: stretch;
   }
 
   .menu {
-    flex: 1 1 auto;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    flex: none;
+  }
+
+  .menu a {
+    width: 100%;
   }
 
   .stat-grid {
@@ -1450,14 +1478,14 @@ img {
     width: min(var(--max-width), calc(100% - 20px));
   }
 
-  .topbar-shell {
-    top: 8px;
-    padding-top: 10px;
+  .topbar-tools,
+  .menu {
+    width: 100%;
   }
 
   .topbar-tools,
   .menu {
-    width: 100%;
+    grid-template-columns: 1fr;
   }
 
   .brand {
