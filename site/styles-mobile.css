@@ -1,4 +1,4 @@
-/* Legacy shared stylesheet. The live homepage now uses styles-desktop.css and styles-mobile.css. */
+/* Mobile-only homepage design. Edit this file for phone/small-screen layout changes. */
 :root {
   color-scheme: light;
   --bg-top: #edf4fb;

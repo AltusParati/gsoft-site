@@ -10,7 +10,8 @@
   />
   <meta name="theme-color" content="#e7eef6" />
   <script>document.documentElement.classList.add('js-ready');</script>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles-desktop.css" media="screen and (min-width: 861px)" />
+  <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 860px)" />
 </head>
 <body id="top">
   <div class="ambient-layer" aria-hidden="true">
@@ -35,23 +36,7 @@
           </span>
         </a>
 
-        <button
-          class="menu-toggle"
-          type="button"
-          data-menu-toggle
-          aria-expanded="false"
-          aria-controls="site-menu"
-          aria-label="Menüyü aç veya kapat"
-        >
-          <span class="menu-toggle-label">Menü</span>
-          <span class="menu-toggle-icon" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-
-        <div class="topbar-tools" id="site-menu">
+        <div class="topbar-tools">
           <nav class="menu" aria-label="Ana menü">
             <a href="#uygulamalar">Uygulamalar</a>
             <a href="#yaklasim">Öne Çıkanlar</a>
@@ -215,114 +200,70 @@
         </p>
       </div>
 
-      <div class="catalog-layout">
-        <aside class="catalog-sidebar" data-reveal>
-          <p class="catalog-kicker">Menüler</p>
-          <h3>Ürün akışı</h3>
-          <p class="catalog-text">Uygulama ve oyun duyurularını ayrı başlıklarda takip edin.</p>
+      <div class="product-grid">
+        <article class="product-card" data-reveal>
+          <div class="product-media finance">
+            <div class="media-badge">Finans / Küçük İşletme</div>
+            <img src="images/defter-kasa.webp" alt="Defter Kasa uygulama ikonu" />
+          </div>
 
-          <nav class="catalog-tabs" aria-label="Ürün kategorileri">
-            <a class="catalog-tab is-active" data-tab-link href="#uygulamalarimiz" aria-current="true">
-              <strong>Uygulamalarımız</strong>
-              <span>Yayındaki ve yayına hazırlanan yazılım ürünleri</span>
-            </a>
-
-            <a class="catalog-tab" data-tab-link href="#oyunlarimiz">
-              <strong>Oyunlarımız</strong>
-              <span>Hikâye, atmosfer ve yeni oyun projeleri</span>
-            </a>
-          </nav>
-        </aside>
-
-        <div class="catalog-content">
-          <section id="uygulamalarimiz" class="catalog-panel" data-tab-panel>
-            <div class="catalog-panel-head">
+          <div class="product-body">
+            <div class="product-top">
               <div>
-                <p class="catalog-label">Kategori 01</p>
-                <h3>Uygulamalarımız</h3>
+                <p class="product-label">Yayındaki uygulama</p>
+                <h3>Defter Kasa</h3>
               </div>
-              <p class="catalog-summary">Yayında olan veya yayın hazırlığında bulunan uygulamalar bu alanda toplanır.</p>
+              <span class="status-chip is-live">Aktif</span>
             </div>
 
-            <div class="product-grid">
-              <article class="product-card" data-reveal>
-                <div class="product-media finance">
-                  <div class="media-badge">Finans / Küçük İşletme</div>
-                  <img src="images/defter-kasa.webp" alt="Defter Kasa uygulama ikonu" />
-                </div>
+            <p class="product-text">
+              Borç takibi, ödeme kayıtları, günlük hareketler ve temel finans düzeni için sade ama güçlü bir kullanım deneyimi sunar.
+            </p>
 
-                <div class="product-body">
-                  <div class="product-top">
-                    <div>
-                      <p class="product-label">Yayındaki uygulama</p>
-                      <h3>Defter Kasa</h3>
-                    </div>
-                    <span class="status-chip is-live">Aktif</span>
-                  </div>
+            <ul class="feature-list">
+              <li>Müşteri ve cari hareketlerini tek akışta toplar</li>
+              <li>Günlük kullanımda hızlı ve anlaşılır bir yapı sunar</li>
+              <li>Gizlilik politikası ve destek bilgilerine doğrudan erişim verir</li>
+            </ul>
 
-                  <p class="product-text">
-                    Borç takibi, ödeme kayıtları, günlük hareketler ve temel finans düzeni için sade ama güçlü bir kullanım deneyimi sunar.
-                  </p>
-
-                  <ul class="feature-list">
-                    <li>Müşteri ve cari hareketlerini tek akışta toplar</li>
-                    <li>Günlük kullanımda hızlı ve anlaşılır bir yapı sunar</li>
-                    <li>Gizlilik politikası ve destek bilgilerine doğrudan erişim verir</li>
-                  </ul>
-
-                  <div class="product-actions">
-                    <span class="button button-disabled" aria-disabled="true">Google Play bağlantısı eklenecek</span>
-                    <a class="button button-secondary" href="defter-kasa-gizlilik-politikasi.html">Gizlilik politikası</a>
-                  </div>
-                </div>
-              </article>
+            <div class="product-actions">
+              <span class="button button-disabled" aria-disabled="true">Google Play bağlantısı eklenecek</span>
+              <a class="button button-secondary" href="defter-kasa-gizlilik-politikasi.html">Gizlilik politikası</a>
             </div>
-          </section>
+          </div>
+        </article>
 
-          <section id="oyunlarimiz" class="catalog-panel" data-tab-panel>
-            <div class="catalog-panel-head">
+        <article class="product-card" data-reveal>
+          <div class="product-media story">
+            <div class="media-badge">Oyun / Atmosfer / Hikâye</div>
+            <img src="images/logo1.png" alt="Anılar Müzesi için görsel yer tutucu" />
+          </div>
+
+          <div class="product-body">
+            <div class="product-top">
               <div>
-                <p class="catalog-label">Kategori 02</p>
-                <h3>Oyunlarımız</h3>
+                <p class="product-label">Yakında</p>
+                <h3>Anılar Müzesi</h3>
               </div>
-              <p class="catalog-summary">Yeni oyunlarımız, atmosfer odaklı projelerimiz ve çıkışa yaklaşan yapımlar bu başlıkta yer alır.</p>
+              <span class="status-chip is-soon">Yakında</span>
             </div>
 
-            <div class="product-grid">
-              <article class="product-card" data-reveal>
-                <div class="product-media story">
-                  <div class="media-badge">Oyun / Atmosfer / Hikâye</div>
-                  <img src="images/logo1.png" alt="Anılar Müzesi için görsel yer tutucu" />
-                </div>
+            <p class="product-text">
+              Keşif duygusunu, merakı ve anlatı temposunu öne çıkaran yeni bir oyun deneyimi. Yayın tarihi yaklaştıkça detaylar burada güncellenecek.
+            </p>
 
-                <div class="product-body">
-                  <div class="product-top">
-                    <div>
-                      <p class="product-label">Yakında</p>
-                      <h3>Anılar Müzesi</h3>
-                    </div>
-                    <span class="status-chip is-soon">Yakında</span>
-                  </div>
+            <ul class="feature-list">
+              <li>Hikâye odaklı ilerleyiş ve atmosferik dünya kurgusu</li>
+              <li>Yayın öncesi bilgi ve destek sayfası için hazır alan</li>
+              <li>Görseller ve mağaza bağlantıları daha sonra kolayca eklenebilir</li>
+            </ul>
 
-                  <p class="product-text">
-                    Keşif duygusunu, merakı ve anlatı temposunu öne çıkaran yeni bir oyun deneyimi. Yayın tarihi yaklaştıkça detaylar burada güncellenecek.
-                  </p>
-
-                  <ul class="feature-list">
-                    <li>Hikâye odaklı ilerleyiş ve atmosferik dünya kurgusu</li>
-                    <li>Yayın öncesi bilgi ve destek sayfası için hazır alan</li>
-                    <li>Görseller ve mağaza bağlantıları daha sonra kolayca eklenebilir</li>
-                  </ul>
-
-                  <div class="product-actions">
-                    <span class="button button-disabled" aria-disabled="true">Mağaza bağlantısı yakında</span>
-                    <a class="button button-secondary" href="anilar-muzesi-gizlilik-politikasi.html">Gizlilik politikası</a>
-                  </div>
-                </div>
-              </article>
+            <div class="product-actions">
+              <span class="button button-disabled" aria-disabled="true">Mağaza bağlantısı yakında</span>
+              <a class="button button-secondary" href="anilar-muzesi-gizlilik-politikasi.html">Gizlilik politikası</a>
             </div>
-          </section>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
 

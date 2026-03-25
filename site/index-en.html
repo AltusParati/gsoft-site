@@ -10,7 +10,8 @@
   />
   <meta name="theme-color" content="#e7eef6" />
   <script>document.documentElement.classList.add('js-ready');</script>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles-desktop.css" media="screen and (min-width: 861px)" />
+  <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 860px)" />
 </head>
 <body id="top">
   <div class="ambient-layer" aria-hidden="true">
@@ -35,23 +36,7 @@
           </span>
         </a>
 
-        <button
-          class="menu-toggle"
-          type="button"
-          data-menu-toggle
-          aria-expanded="false"
-          aria-controls="site-menu"
-          aria-label="Open or close menu"
-        >
-          <span class="menu-toggle-label">Menu</span>
-          <span class="menu-toggle-icon" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-
-        <div class="topbar-tools" id="site-menu">
+        <div class="topbar-tools">
           <nav class="menu" aria-label="Main menu">
             <a href="#uygulamalar">Apps</a>
             <a href="#yaklasim">Highlights</a>
@@ -215,114 +200,70 @@
         </p>
       </div>
 
-      <div class="catalog-layout">
-        <aside class="catalog-sidebar" data-reveal>
-          <p class="catalog-kicker">Menu</p>
-          <h3>Product flow</h3>
-          <p class="catalog-text">Follow app and game releases in separate categories.</p>
+      <div class="product-grid">
+        <article class="product-card" data-reveal>
+          <div class="product-media finance">
+            <div class="media-badge">Finance / Small Business</div>
+            <img src="images/defter-kasa.webp" alt="Defter Kasa app icon" />
+          </div>
 
-          <nav class="catalog-tabs" aria-label="Product categories">
-            <a class="catalog-tab is-active" data-tab-link href="#uygulamalarimiz" aria-current="true">
-              <strong>Our Apps</strong>
-              <span>Published software products and releases in progress</span>
-            </a>
-
-            <a class="catalog-tab" data-tab-link href="#oyunlarimiz">
-              <strong>Our Games</strong>
-              <span>Story-first, atmospheric, and upcoming game projects</span>
-            </a>
-          </nav>
-        </aside>
-
-        <div class="catalog-content">
-          <section id="uygulamalarimiz" class="catalog-panel" data-tab-panel>
-            <div class="catalog-panel-head">
+          <div class="product-body">
+            <div class="product-top">
               <div>
-                <p class="catalog-label">Category 01</p>
-                <h3>Our Apps</h3>
+                <p class="product-label">Available now</p>
+                <h3>Defter Kasa</h3>
               </div>
-              <p class="catalog-summary">All published apps and software releases in progress are grouped in this area.</p>
+              <span class="status-chip is-live">Active</span>
             </div>
 
-            <div class="product-grid">
-              <article class="product-card" data-reveal>
-                <div class="product-media finance">
-                  <div class="media-badge">Finance / Small Business</div>
-                  <img src="images/defter-kasa.webp" alt="Defter Kasa app icon" />
-                </div>
+            <p class="product-text">
+              A simple yet capable experience for debt tracking, payment records, daily cash flow, and basic business finance.
+            </p>
 
-                <div class="product-body">
-                  <div class="product-top">
-                    <div>
-                      <p class="product-label">Available now</p>
-                      <h3>Defter Kasa</h3>
-                    </div>
-                    <span class="status-chip is-live">Active</span>
-                  </div>
+            <ul class="feature-list">
+              <li>Brings customer and ledger activity into one flow</li>
+              <li>Keeps day-to-day use fast and easy to follow</li>
+              <li>Provides direct access to privacy and support information</li>
+            </ul>
 
-                  <p class="product-text">
-                    A simple yet capable experience for debt tracking, payment records, daily cash flow, and basic business finance.
-                  </p>
-
-                  <ul class="feature-list">
-                    <li>Brings customer and ledger activity into one flow</li>
-                    <li>Keeps day-to-day use fast and easy to follow</li>
-                    <li>Provides direct access to privacy and support information</li>
-                  </ul>
-
-                  <div class="product-actions">
-                    <span class="button button-disabled" aria-disabled="true">Google Play link coming soon</span>
-                    <a class="button button-secondary" href="defter-kasa-privacy-policy.html">Privacy policy</a>
-                  </div>
-                </div>
-              </article>
+            <div class="product-actions">
+              <span class="button button-disabled" aria-disabled="true">Google Play link coming soon</span>
+              <a class="button button-secondary" href="defter-kasa-privacy-policy.html">Privacy policy</a>
             </div>
-          </section>
+          </div>
+        </article>
 
-          <section id="oyunlarimiz" class="catalog-panel" data-tab-panel>
-            <div class="catalog-panel-head">
+        <article class="product-card" data-reveal>
+          <div class="product-media story">
+            <div class="media-badge">Game / Atmosphere / Story</div>
+            <img src="images/logo1.png" alt="Anilar Muzesi placeholder artwork" />
+          </div>
+
+          <div class="product-body">
+            <div class="product-top">
               <div>
-                <p class="catalog-label">Category 02</p>
-                <h3>Our Games</h3>
+                <p class="product-label">Coming soon</p>
+                <h3>Anilar Muzesi</h3>
               </div>
-              <p class="catalog-summary">Upcoming games, atmosphere-driven projects, and new playable releases live under this heading.</p>
+              <span class="status-chip is-soon">Soon</span>
             </div>
 
-            <div class="product-grid">
-              <article class="product-card" data-reveal>
-                <div class="product-media story">
-                  <div class="media-badge">Game / Atmosphere / Story</div>
-                  <img src="images/logo1.png" alt="Anilar Muzesi placeholder artwork" />
-                </div>
+            <p class="product-text">
+              A new experience built around discovery, curiosity, and narrative pace. More details will be added here as the release gets closer.
+            </p>
 
-                <div class="product-body">
-                  <div class="product-top">
-                    <div>
-                      <p class="product-label">Coming soon</p>
-                      <h3>Anilar Muzesi</h3>
-                    </div>
-                    <span class="status-chip is-soon">Soon</span>
-                  </div>
+            <ul class="feature-list">
+              <li>Story-driven progression with an atmospheric world</li>
+              <li>A ready space for release information and support</li>
+              <li>Visuals and store links can be added later with ease</li>
+            </ul>
 
-                  <p class="product-text">
-                    A new experience built around discovery, curiosity, and narrative pace. More details will be added here as the release gets closer.
-                  </p>
-
-                  <ul class="feature-list">
-                    <li>Story-driven progression with an atmospheric world</li>
-                    <li>A ready space for release information and support</li>
-                    <li>Visuals and store links can be added later with ease</li>
-                  </ul>
-
-                  <div class="product-actions">
-                    <span class="button button-disabled" aria-disabled="true">Store link coming soon</span>
-                    <a class="button button-secondary" href="anilar-muzesi-privacy-policy.html">Privacy policy</a>
-                  </div>
-                </div>
-              </article>
+            <div class="product-actions">
+              <span class="button button-disabled" aria-disabled="true">Store link coming soon</span>
+              <a class="button button-secondary" href="anilar-muzesi-privacy-policy.html">Privacy policy</a>
             </div>
-          </section>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
 

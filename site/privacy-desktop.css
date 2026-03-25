@@ -1,4 +1,4 @@
-/* Legacy shared stylesheet. Privacy pages now use privacy-desktop.css and privacy-mobile.css. */
+/* Desktop-only privacy page design. */
 :root {
   color-scheme: light;
   --bg-top: #f7f1e8;
