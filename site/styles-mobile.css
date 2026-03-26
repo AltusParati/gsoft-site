@@ -2196,19 +2196,34 @@ body::after {
   }
 
   .topbar-tools {
-    gap: 8px;
+    gap: 6px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .menu {
-    gap: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .menu::-webkit-scrollbar {
+    display: none;
   }
 
   .menu a,
   .theme-toggle,
   .lang-toggle {
-    min-height: 38px;
+    min-height: 36px;
     padding: 0 12px;
-    font-size: 0.94rem;
+    font-size: 0.9rem;
+  }
+
+  .menu a {
+    flex: 0 0 auto;
+    min-width: max-content;
   }
 }
 
@@ -2240,11 +2255,33 @@ body::after {
   }
 
   .brand-copy small {
-    font-size: 0.74rem;
+    display: none;
   }
 
   .ambient-layer::before,
   .ambient-layer::after {
     display: none;
+  }
+
+  .topbar-tools {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .menu a,
+  .theme-toggle,
+  .lang-toggle {
+    min-height: 34px;
+    padding: 0 10px;
+    font-size: 0.84rem;
   }
 }
