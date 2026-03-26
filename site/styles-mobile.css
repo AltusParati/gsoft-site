@@ -207,7 +207,9 @@ img {
 
 .ambient-panel,
 .ambient-trace,
-.ambient-tag {
+.ambient-tag,
+.ambient-route,
+.ambient-node {
   position: absolute;
 }
 
@@ -215,12 +217,20 @@ img {
   border-radius: 1.3rem;
   border: 1px solid rgba(78, 208, 220, 0.14);
   background:
-    linear-gradient(180deg, rgba(19, 34, 49, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(233, 243, 250, 0.4) 26%, transparent 74%),
     linear-gradient(rgba(78, 208, 220, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(78, 208, 220, 0.045) 1px, transparent 1px);
   background-size: auto, 16px 16px, 16px 16px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68);
   opacity: 0.7;
+}
+
+:root[data-theme="dark"] .ambient-panel {
+  background:
+    linear-gradient(180deg, rgba(19, 34, 49, 0.2), transparent 26%),
+    linear-gradient(rgba(78, 208, 220, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 208, 220, 0.045) 1px, transparent 1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .ambient-panel::before,
@@ -271,8 +281,12 @@ img {
 }
 
 .ambient-trace {
-  opacity: 0.42;
+  opacity: 0.28;
   background-repeat: no-repeat;
+}
+
+:root[data-theme="dark"] .ambient-trace {
+  opacity: 0.42;
 }
 
 .trace-a,
@@ -303,7 +317,7 @@ img {
   padding: 0.45rem 0.75rem;
   border-radius: 999px;
   border: 1px solid rgba(78, 208, 220, 0.18);
-  background: rgba(248, 252, 255, 0.8);
+  background: rgba(255, 255, 255, 0.92);
   color: #35697a;
   font-family: Consolas, "Cascadia Code", "Courier New", monospace;
   font-size: 0.68rem;
@@ -324,6 +338,79 @@ img {
 .tag-b {
   top: 19rem;
   right: 8%;
+}
+
+.ambient-route {
+  height: 2px;
+  border-radius: 999px;
+  opacity: 0.28;
+  background: linear-gradient(90deg, rgba(78, 208, 220, 0.52), rgba(61, 112, 196, 0.4), transparent);
+}
+
+:root[data-theme="dark"] .ambient-route {
+  opacity: 0.44;
+}
+
+.route-core {
+  top: 13.2rem;
+  left: 6%;
+  width: 15rem;
+}
+
+.route-edge {
+  top: 16.7rem;
+  left: 48%;
+  width: 8rem;
+  transform: rotate(-22deg);
+}
+
+.ambient-node {
+  min-width: 4.2rem;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.34rem 0.58rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(78, 208, 220, 0.18);
+  background: rgba(255, 255, 255, 0.94);
+  color: #2c6170;
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(23, 48, 72, 0.07);
+}
+
+:root[data-theme="dark"] .ambient-node {
+  background: rgba(16, 29, 42, 0.9);
+  color: #92dce6;
+}
+
+.node-client {
+  top: 12rem;
+  left: 5%;
+}
+
+.node-api {
+  top: 12rem;
+  left: 27%;
+}
+
+.node-db {
+  top: 12rem;
+  left: 47%;
+}
+
+.node-deploy {
+  top: 15.1rem;
+  left: 56%;
+}
+
+.node-release {
+  top: 17.9rem;
+  left: 66%;
 }
 
 .container {
@@ -1458,13 +1545,17 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.14;
+  opacity: 0.09;
   background-image:
     linear-gradient(90deg, transparent 0 8%, rgba(78, 208, 220, 0.14) 8% 8.1%, transparent 8.1% 100%),
     linear-gradient(transparent 0 16%, rgba(61, 112, 196, 0.14) 16% 16.1%, transparent 16.1% 100%),
     radial-gradient(circle at 22% 14%, rgba(78, 208, 220, 0.24) 0 1px, transparent 1.6px),
     radial-gradient(circle at 78% 24%, rgba(61, 112, 196, 0.18) 0 1px, transparent 1.6px);
   background-size: 100% 100%, 100% 100%, 12rem 12rem, 16rem 16rem;
+}
+
+:root[data-theme="dark"] body::after {
+  opacity: 0.14;
 }
 
 .ambient-layer {
@@ -1478,8 +1569,12 @@ body::after {
 }
 
 .ambient-noise {
-  opacity: 0.08;
+  opacity: 0.05;
   background-size: 10rem 10rem, 10rem 10rem, 16rem 16rem, 20rem 20rem, 100% 100%;
+}
+
+:root[data-theme="dark"] .ambient-noise {
+  opacity: 0.08;
 }
 
 .topbar {
@@ -1663,7 +1758,8 @@ body::after {
   }
 
   .panel-right,
-  .tag-b {
+  .tag-b,
+  .node-release {
     display: none;
   }
 
@@ -1793,7 +1889,10 @@ body::after {
   }
 
   .ambient-panel,
-  .trace-b {
+  .trace-b,
+  .route-edge,
+  .node-deploy,
+  .node-release {
     display: none;
   }
 
@@ -1802,6 +1901,27 @@ body::after {
     left: 58%;
     width: 8rem;
     height: 6rem;
+  }
+
+  .route-core {
+    top: 11.6rem;
+    left: 6%;
+    width: 11rem;
+  }
+
+  .node-client {
+    top: 10.5rem;
+    left: 5%;
+  }
+
+  .node-api {
+    top: 10.5rem;
+    left: 31%;
+  }
+
+  .node-db {
+    top: 10.5rem;
+    left: 56%;
   }
 
   .tag-a {
