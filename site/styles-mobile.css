@@ -2084,3 +2084,82 @@ body::after {
     transform: none;
   }
 }
+
+/* Ambient continuity fix */
+.ambient-layer {
+  inset: 0;
+  height: auto;
+  min-height: 100%;
+}
+
+.ambient-layer::before,
+.ambient-layer::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.ambient-layer::before {
+  left: 5%;
+  bottom: 18rem;
+  width: 13rem;
+  height: 8rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(78, 208, 220, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(233, 243, 250, 0.34) 28%, transparent 74%),
+    linear-gradient(rgba(78, 208, 220, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 208, 220, 0.045) 1px, transparent 1px);
+  background-size: auto, 16px 16px, 16px 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.66);
+  opacity: 0.48;
+  transform: rotate(-6deg);
+}
+
+.ambient-layer::after {
+  right: 4%;
+  bottom: 8rem;
+  width: 15rem;
+  height: 9rem;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(90deg, rgba(78, 208, 220, 0.34), rgba(78, 208, 220, 0.34)),
+    linear-gradient(90deg, rgba(78, 208, 220, 0.34), rgba(78, 208, 220, 0.34)),
+    linear-gradient(180deg, rgba(78, 208, 220, 0.34), rgba(78, 208, 220, 0.34)),
+    radial-gradient(circle, rgba(78, 208, 220, 0.82) 0 0.22rem, transparent 0.24rem),
+    radial-gradient(circle, rgba(61, 112, 196, 0.72) 0 0.22rem, transparent 0.24rem),
+    radial-gradient(circle, rgba(78, 208, 220, 0.82) 0 0.22rem, transparent 0.24rem);
+  background-size: 50% 2px, 36% 2px, 2px 50%, 0.7rem 0.7rem, 0.7rem 0.7rem, 0.7rem 0.7rem;
+  background-position: 8% 30%, 54% 68%, 54% 30%, calc(54% - 0.35rem) calc(30% - 0.35rem), calc(8% - 0.35rem) calc(30% - 0.35rem), calc(90% - 0.35rem) calc(68% - 0.35rem);
+  background-repeat: no-repeat;
+}
+
+:root[data-theme="dark"] .ambient-layer::before {
+  background:
+    linear-gradient(180deg, rgba(19, 34, 49, 0.22), transparent 28%),
+    linear-gradient(rgba(78, 208, 220, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 208, 220, 0.045) 1px, transparent 1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme="dark"] .ambient-layer::after {
+  opacity: 0.32;
+}
+
+@media (max-width: 860px) {
+  .ambient-layer {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .ambient-tag {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .ambient-layer::before,
+  .ambient-layer::after {
+    display: none;
+  }
+}
