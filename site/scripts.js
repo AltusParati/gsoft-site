@@ -3,6 +3,7 @@ root.classList.add("js-ready");
 
 const themeMeta = document.querySelector('meta[name="theme-color"]');
 const themeButtons = document.querySelectorAll("[data-theme-toggle]");
+const themedLogoImages = document.querySelectorAll("[data-themed-logo]");
 const yearElement = document.getElementById("year");
 const topbarShell = document.querySelector(".topbar-shell");
 const revealItems = document.querySelectorAll("[data-reveal]");
@@ -46,6 +47,34 @@ const getPreferredTheme = () => {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
 
+const bindThemedLogoFallbacks = () => {
+  themedLogoImages.forEach((image) => {
+    if (image.dataset.logoFallbackBound === "true") {
+      return;
+    }
+
+    image.dataset.logoFallbackBound = "true";
+    image.addEventListener("error", () => {
+      const lightLogo = image.dataset.logoLight;
+      if (lightLogo && image.getAttribute("src") !== lightLogo) {
+        image.setAttribute("src", lightLogo);
+      }
+    });
+  });
+};
+
+const updateThemeLogos = (theme) => {
+  themedLogoImages.forEach((image) => {
+    const lightLogo = image.dataset.logoLight;
+    const darkLogo = image.dataset.logoDark;
+    const nextLogo = theme === "dark" ? darkLogo : lightLogo;
+
+    if (nextLogo && image.getAttribute("src") !== nextLogo) {
+      image.setAttribute("src", nextLogo);
+    }
+  });
+};
+
 const updateThemeUi = (theme) => {
   if (themeMeta) {
     themeMeta.setAttribute("content", theme === "dark" ? "#101b29" : "#e7eef6");
@@ -66,9 +95,11 @@ const updateThemeUi = (theme) => {
 const applyTheme = (theme) => {
   root.dataset.theme = theme;
   root.style.colorScheme = theme;
+  updateThemeLogos(theme);
   updateThemeUi(theme);
 };
 
+bindThemedLogoFallbacks();
 applyTheme(getPreferredTheme());
 
 themeButtons.forEach((button) => {
