@@ -65,6 +65,7 @@ const updateThemeUi = (theme) => {
 
 const applyTheme = (theme) => {
   root.dataset.theme = theme;
+  root.style.colorScheme = theme;
   updateThemeUi(theme);
 };
 

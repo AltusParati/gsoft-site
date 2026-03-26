@@ -9,7 +9,23 @@
     content="G-SOFT uygulama kataloğu, yayın durumu, destek akışı ve gizlilik sayfalarını tek merkezde toplar."
   />
   <meta name="theme-color" content="#e7eef6" />
-  <script>document.documentElement.classList.add('js-ready');</script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js-ready');
+      try {
+        var storedTheme = window.localStorage.getItem('gsoft-theme');
+        var theme = storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      } catch (error) {
+        root.dataset.theme = 'light';
+        root.style.colorScheme = 'light';
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="styles-desktop.css" media="screen and (min-width: 861px)" />
   <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 860px)" />
 </head>

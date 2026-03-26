@@ -211,6 +211,8 @@ img {
 .ambient-route,
 .ambient-node {
   position: absolute;
+  pointer-events: none;
+  user-select: none;
 }
 
 .ambient-panel {
@@ -1729,6 +1731,65 @@ body::after {
 
 .section-head {
   margin-bottom: 28px;
+}
+
+::selection {
+  background: rgba(78, 208, 220, 0.24);
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] ::selection {
+  background: rgba(78, 208, 220, 0.3);
+  color: #f5fbff;
+}
+
+:root:not([data-theme="dark"]) body {
+  background:
+    radial-gradient(circle at 16% 0%, rgba(78, 208, 220, 0.05), transparent 24%),
+    radial-gradient(circle at 100% 10%, rgba(61, 112, 196, 0.05), transparent 24%),
+    linear-gradient(180deg, #eef4fa 0%, #e8eff7 42%, #f6f9fc 100%);
+}
+
+:root:not([data-theme="dark"]) body::after {
+  opacity: 0.05;
+}
+
+:root:not([data-theme="dark"]) .topbar,
+:root:not([data-theme="dark"]) .hero-copy,
+:root:not([data-theme="dark"]) .hero-panel,
+:root:not([data-theme="dark"]) .product-card,
+:root:not([data-theme="dark"]) .feature-card,
+:root:not([data-theme="dark"]) .support-card,
+:root:not([data-theme="dark"]) .contact-card-panel,
+:root:not([data-theme="dark"]) .footer {
+  border-color: rgba(23, 48, 72, 0.08);
+}
+
+:root:not([data-theme="dark"]) .topbar {
+  background: rgba(252, 254, 255, 0.96);
+}
+
+:root:not([data-theme="dark"]) .menu a,
+:root:not([data-theme="dark"]) .theme-toggle,
+:root:not([data-theme="dark"]) .lang-toggle,
+:root:not([data-theme="dark"]) .button-secondary,
+:root:not([data-theme="dark"]) .button-disabled {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+:root:not([data-theme="dark"]) .ambient-panel {
+  opacity: 0.44;
+}
+
+:root:not([data-theme="dark"]) .ambient-route,
+:root:not([data-theme="dark"]) .ambient-trace {
+  opacity: 0.22;
+}
+
+:root:not([data-theme="dark"]) .ambient-node,
+:root:not([data-theme="dark"]) .ambient-tag {
+  background: rgba(255, 255, 255, 0.94);
+  color: #2f6777;
 }
 
 @media (max-width: 1120px) {
