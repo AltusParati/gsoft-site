@@ -45,6 +45,24 @@
   --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.2);
 }
 
+:root:not([data-theme="dark"]) {
+  --bg-top: #f8fbff;
+  --bg: #f2f7fb;
+  --bg-bottom: #edf4f9;
+  --bg-glow-1: rgba(76, 194, 210, 0.15);
+  --bg-glow-2: rgba(242, 165, 109, 0.1);
+  --grid-line: rgba(28, 61, 90, 0.06);
+  --surface: #ffffff;
+  --surface-soft: #f7fbfe;
+  --surface-strong: #ffffff;
+  --ink: #173047;
+  --ink-soft: #61778c;
+  --line: #d9e5ee;
+  --line-strong: #c8d5df;
+  --shadow: 0 16px 34px rgba(20, 52, 78, 0.08);
+  --shadow-soft: 0 10px 22px rgba(20, 52, 78, 0.06);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -273,6 +291,23 @@ h1 {
   border: 1px solid var(--line);
   box-shadow: var(--shadow-soft);
   overflow-wrap: anywhere;
+}
+
+:root:not([data-theme="dark"]) .privacy-hero,
+:root:not([data-theme="dark"]) .policy-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 254, 0.95));
+}
+
+:root:not([data-theme="dark"]) .back-link,
+:root:not([data-theme="dark"]) .theme-toggle,
+:root:not([data-theme="dark"]) .lang-toggle,
+:root:not([data-theme="dark"]) .privacy-mark {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+:root:not([data-theme="dark"]) .contact-list a {
+  background: rgba(247, 251, 254, 0.98);
+  color: var(--ink);
 }
 
 @media (max-width: 860px) {
