@@ -205,6 +205,128 @@ img {
   background-size: 8rem 8rem, 8rem 8rem, 14rem 14rem, 18rem 18rem, 100% 100%;
 }
 
+.ambient-panel,
+.ambient-trace,
+.ambient-tag {
+  position: absolute;
+}
+
+.ambient-panel {
+  border-radius: 1.6rem;
+  border: 1px solid rgba(78, 208, 220, 0.14);
+  background:
+    linear-gradient(180deg, rgba(19, 34, 49, 0.08), transparent 26%),
+    linear-gradient(rgba(78, 208, 220, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 208, 220, 0.045) 1px, transparent 1px);
+  background-size: auto, 18px 18px, 18px 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  opacity: 0.82;
+}
+
+.ambient-panel::before,
+.ambient-panel::after {
+  content: "";
+  position: absolute;
+}
+
+.ambient-panel::before {
+  left: 1rem;
+  right: 1rem;
+  top: 0.9rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 0.55rem 50%, rgba(255, 255, 255, 0.88) 0 0.16rem, transparent 0.18rem),
+    radial-gradient(circle at 1.25rem 50%, rgba(78, 208, 220, 0.72) 0 0.16rem, transparent 0.18rem),
+    radial-gradient(circle at 1.95rem 50%, rgba(61, 112, 196, 0.65) 0 0.16rem, transparent 0.18rem),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18), transparent 75%);
+}
+
+.ambient-panel::after {
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  height: 5rem;
+  border-radius: 1rem;
+  background:
+    linear-gradient(90deg, rgba(78, 208, 220, 0.18) 0 42%, transparent 42% 100%),
+    repeating-linear-gradient(0deg, rgba(78, 208, 220, 0.1) 0 2px, transparent 2px 14px);
+  opacity: 0.75;
+}
+
+.panel-left {
+  top: 5.5rem;
+  right: 4%;
+  width: 22rem;
+  height: 12.5rem;
+  transform: rotate(6deg);
+}
+
+.panel-right {
+  top: 29rem;
+  left: 2%;
+  width: 18rem;
+  height: 10.5rem;
+  transform: rotate(-6deg);
+}
+
+.ambient-trace {
+  opacity: 0.5;
+  background-repeat: no-repeat;
+}
+
+.trace-a,
+.trace-b {
+  width: 16rem;
+  height: 10rem;
+  background-image:
+    linear-gradient(90deg, rgba(78, 208, 220, 0.34), rgba(78, 208, 220, 0.34)),
+    linear-gradient(180deg, rgba(78, 208, 220, 0.34), rgba(78, 208, 220, 0.34)),
+    radial-gradient(circle, rgba(78, 208, 220, 0.82) 0 0.24rem, transparent 0.26rem),
+    radial-gradient(circle, rgba(61, 112, 196, 0.72) 0 0.24rem, transparent 0.26rem);
+  background-size: 72% 2px, 2px 58%, 0.7rem 0.7rem, 0.7rem 0.7rem;
+  background-position: 0 58%, 72% 0, calc(72% - 0.35rem) calc(58% - 0.35rem), calc(100% - 0.35rem) calc(0% - 0.35rem);
+}
+
+.trace-a {
+  top: 7.5rem;
+  left: 54%;
+}
+
+.trace-b {
+  top: 26rem;
+  left: 12%;
+  transform: scaleX(-1);
+}
+
+.ambient-tag {
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(78, 208, 220, 0.18);
+  background: rgba(248, 252, 255, 0.8);
+  color: #35697a;
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 10px 22px rgba(23, 48, 72, 0.08);
+}
+
+:root[data-theme="dark"] .ambient-tag {
+  background: rgba(17, 29, 43, 0.82);
+  color: #8edbe5;
+}
+
+.tag-a {
+  top: 11rem;
+  left: 8%;
+}
+
+.tag-b {
+  top: 23rem;
+  right: 10%;
+}
+
 .container {
   width: min(var(--max-width), calc(100% - 32px));
   margin: 0 auto;
@@ -1520,6 +1642,21 @@ body::after {
   .hero-grid,
   .support-layout {
     grid-template-columns: 1fr;
+  }
+
+  .panel-right,
+  .tag-b {
+    display: none;
+  }
+
+  .panel-left {
+    width: 18rem;
+    height: 10.25rem;
+    right: 2%;
+  }
+
+  .trace-a {
+    left: 62%;
   }
 
   .section-head {
