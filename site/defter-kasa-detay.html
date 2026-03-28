@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G-SOFT | Defter Kasa</title>
+  <meta
+    name="description"
+    content="Defter Kasa için ürün özeti, son notlar ve destek bağlantıları G-SOFT uygulama detay sayfasında yer alır."
+  />
+  <meta name="theme-color" content="#e7eef6" />
+  <link rel="icon" type="image/png" href="images/favicon.png?v=20260326" />
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js-ready');
+      try {
+        var storedTheme = window.localStorage.getItem('gsoft-theme');
+        var theme = storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      } catch (error) {
+        root.dataset.theme = 'light';
+        root.style.colorScheme = 'light';
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles-desktop.css" media="screen and (min-width: 861px)" />
+  <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 860px)" />
+</head>
+<body id="top">
+  <div class="ambient-layer" aria-hidden="true">
+    <span class="ambient-orb orb-a"></span>
+    <span class="ambient-orb orb-b"></span>
+    <span class="ambient-orb orb-c"></span>
+    <span class="ambient-beam beam-a"></span>
+    <span class="ambient-beam beam-b"></span>
+    <span class="ambient-noise"></span>
+    <span class="ambient-panel panel-left"></span>
+    <span class="ambient-panel panel-right"></span>
+    <span class="ambient-trace trace-a"></span>
+    <span class="ambient-trace trace-b"></span>
+    <span class="ambient-tag tag-a">build()</span>
+    <span class="ambient-tag tag-b">app.json</span>
+    <span class="ambient-route route-core"></span>
+    <span class="ambient-route route-edge"></span>
+    <span class="ambient-node node-client">client</span>
+    <span class="ambient-node node-api">api</span>
+    <span class="ambient-node node-db">db</span>
+    <span class="ambient-node node-deploy">deploy</span>
+    <span class="ambient-node node-release">release</span>
+  </div>
+
+  <div class="topbar-shell">
+    <div class="container">
+      <header class="topbar" data-reveal>
+        <a class="brand" href="uygulamalarimiz.html" aria-label="Uygulama sayfasına dön">
+          <span class="brand-mark">
+            <img src="images/logo1.png?v=20260326" data-themed-logo data-logo-light="images/logo1.png?v=20260326" data-logo-dark="images/koyumodlogo.png?v=20260326b" alt="G-SOFT logosu" />
+          </span>
+          <span class="brand-copy">
+            <strong>G-SOFT</strong>
+            <small>uygulama detayları ve destek akışı</small>
+          </span>
+        </a>
+
+        <div class="topbar-tools">
+          <nav class="menu menu-product-nav" aria-label="Ürün sayfaları">
+            <a href="index.html">Anasayfa</a>
+            <a class="is-current" href="uygulamalarimiz.html" aria-current="page">Uygulamalarımız</a>
+            <a href="oyunlarimiz.html">Oyunlarımız</a>
+          </nav>
+
+          <a class="lang-toggle" href="defter-kasa-detail.html" lang="en" aria-label="Switch to English">EN</a>
+
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+            <span class="theme-toggle-dot" aria-hidden="true"></span>
+            <span data-theme-label>Görünüm: Açık</span>
+          </button>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main>
+    <section class="section container">
+      <div class="detail-layout">
+        <article class="detail-summary" data-reveal>
+          <p class="section-kicker">Uygulama Detayı</p>
+          <h1 class="detail-title">Defter Kasa</h1>
+          <p class="detail-lede">
+            Küçük işletmeler için borç takibi, ödeme kaydı, müşteri akışı ve günlük finans düzenini tek yerde toplayan sade bir cari takip uygulaması.
+          </p>
+
+          <div class="detail-stat-row" aria-label="Defter Kasa özet bilgileri">
+            <span class="detail-pill">Android</span>
+            <span class="detail-pill">Finans ve cari takip</span>
+            <span class="detail-pill">Kapalı test</span>
+            <span class="detail-pill">Destek bağlantılı</span>
+          </div>
+
+          <div class="detail-actions">
+            <span class="button button-disabled" aria-disabled="true">Google Play bağlantısı hazırlanıyor</span>
+            <a class="button button-secondary" href="defter-kasa-gizlilik-politikasi.html">Gizlilik politikası</a>
+          </div>
+        </article>
+
+        <aside class="progress-card" data-reveal data-progress-target="84">
+          <p class="progress-kicker">Ürün İlerleme Oranı</p>
+          <h2 class="progress-title">Kapalı test ve yayın hazırlığı durumu</h2>
+
+          <div class="progress-head">
+            <p class="progress-value" data-progress-value>0%</p>
+            <p class="progress-caption">mevcut kapalı test ve yayın hazırlık hedefine göre toplam ilerleme</p>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <span class="progress-fill" data-progress-fill></span>
+          </div>
+
+          <ul class="progress-points">
+            <li>Cari takip ana akışı ve temel finans düzeni hazır tutuluyor</li>
+            <li>Gizlilik sayfası ve destek bağlantıları ürünle eşlenmiş durumda</li>
+            <li>Mağaza sayfası ve yayın bağlantısı hazır olduğunda buraya eklenecek</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Ürün Notları</p>
+          <h2 class="section-title">Son eklenenler</h2>
+        </div>
+        <p class="section-copy">
+          Defter Kasa için yayın öncesi hazırlıklar, destek akışı ve kullanıcıya dönük temel yapı bu alanda özetlenir.
+        </p>
+      </div>
+
+      <div class="notes-grid">
+        <article class="note-card" data-reveal>
+          <p class="note-date">28 Mart 2026</p>
+          <h3>Ürün detay sayfası eklendi</h3>
+          <ul>
+            <li>Uygulama kataloğundan detay sayfasına doğrudan geçiş kuruldu</li>
+            <li>Destek ve gizlilik akışı tek ürün altında toplandı</li>
+          </ul>
+        </article>
+
+        <article class="note-card" data-reveal>
+          <p class="note-date">23 Mart 2026</p>
+          <h3>Gizlilik akışı yayınlandı</h3>
+          <ul>
+            <li>Ürünün veri yaklaşımı ve izin mantığı ayrı sayfada netleştirildi</li>
+            <li>İletişim bağlantıları düzenli bir akışa taşındı</li>
+          </ul>
+        </article>
+
+        <article class="note-card" data-reveal>
+          <p class="note-date">21 Mart 2026</p>
+          <h3>Temel kullanım akışı toparlandı</h3>
+          <ul>
+            <li>Borç, ödeme ve günlük hareket düzeni sade ekran mantığıyla kurgulandı</li>
+            <li>Küçük işletme kullanımına uygun anlaşılır bir yapı hedeflendi</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p><strong>© G-SOFT</strong> <span id="year">2026</span> · Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

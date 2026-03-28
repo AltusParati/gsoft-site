@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G-SOFT | Anılar Müzesi</title>
+  <meta
+    name="description"
+    content="Anılar Müzesi için proje özeti, iptal durumu ve arşiv notu bağlantıları G-SOFT oyun detay sayfasında yer alır."
+  />
+  <meta name="theme-color" content="#e7eef6" />
+  <link rel="icon" type="image/png" href="images/favicon.png?v=20260326" />
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js-ready');
+      try {
+        var storedTheme = window.localStorage.getItem('gsoft-theme');
+        var theme = storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      } catch (error) {
+        root.dataset.theme = 'light';
+        root.style.colorScheme = 'light';
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles-desktop.css" media="screen and (min-width: 861px)" />
+  <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 860px)" />
+</head>
+<body id="top">
+  <div class="ambient-layer" aria-hidden="true">
+    <span class="ambient-orb orb-a"></span>
+    <span class="ambient-orb orb-b"></span>
+    <span class="ambient-orb orb-c"></span>
+    <span class="ambient-beam beam-a"></span>
+    <span class="ambient-beam beam-b"></span>
+    <span class="ambient-noise"></span>
+    <span class="ambient-panel panel-left"></span>
+    <span class="ambient-panel panel-right"></span>
+    <span class="ambient-trace trace-a"></span>
+    <span class="ambient-trace trace-b"></span>
+    <span class="ambient-tag tag-a">archive()</span>
+    <span class="ambient-tag tag-b">status.json</span>
+    <span class="ambient-route route-core"></span>
+    <span class="ambient-route route-edge"></span>
+    <span class="ambient-node node-client">client</span>
+    <span class="ambient-node node-api">notes</span>
+    <span class="ambient-node node-db">archive</span>
+    <span class="ambient-node node-deploy">status</span>
+    <span class="ambient-node node-release">record</span>
+  </div>
+
+  <div class="topbar-shell">
+    <div class="container">
+      <header class="topbar" data-reveal>
+        <a class="brand" href="oyunlarimiz.html" aria-label="Oyun sayfasına dön">
+          <span class="brand-mark">
+            <img src="images/logo1.png?v=20260326" data-themed-logo data-logo-light="images/logo1.png?v=20260326" data-logo-dark="images/koyumodlogo.png?v=20260326b" alt="G-SOFT logosu" />
+          </span>
+          <span class="brand-copy">
+            <strong>G-SOFT</strong>
+            <small>oyun detayları, durum notları ve arşiv akışı</small>
+          </span>
+        </a>
+
+        <div class="topbar-tools">
+          <nav class="menu menu-product-nav" aria-label="Ürün sayfaları">
+            <a href="index.html">Anasayfa</a>
+            <a href="uygulamalarimiz.html">Uygulamalarımız</a>
+            <a class="is-current" href="oyunlarimiz.html" aria-current="page">Oyunlarımız</a>
+          </nav>
+
+          <a class="lang-toggle" href="anilar-muzesi-detail.html" lang="en" aria-label="Switch to English">EN</a>
+
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+            <span class="theme-toggle-dot" aria-hidden="true"></span>
+            <span data-theme-label>Görünüm: Açık</span>
+          </button>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main>
+    <section class="section container">
+      <div class="detail-layout">
+        <article class="detail-summary" data-reveal>
+          <p class="section-kicker">Arşiv Oyun Sayfası</p>
+          <h1 class="detail-title">Anılar Müzesi</h1>
+          <p class="detail-lede">
+            Atmosfer ve hikâye hissini öne çıkaran mobil oyun fikri olarak planlanan Anılar Müzesi, aktif üretim hattından çıkarıldı ve geliştirmesi durduruldu.
+            Bu sayfa, projenin ne durumda olduğunu, neden artık aktif katalogda ilerlemediğini ve ilgili arşiv kaydını tek yerde toplar.
+          </p>
+
+          <div class="detail-stat-row" aria-label="Anılar Müzesi özet bilgileri">
+            <span class="detail-pill">İptal edildi</span>
+            <span class="detail-pill">Arşiv kaydı</span>
+            <span class="detail-pill">Mobil oyun fikri</span>
+            <span class="detail-pill">Yayınlanmayacak</span>
+          </div>
+
+          <div class="detail-actions">
+            <a class="button button-primary" href="anilar-muzesi-gizlilik-politikasi.html">Arşiv notunu aç</a>
+            <a class="button button-secondary" href="oyunlarimiz.html">Oyun listesine dön</a>
+          </div>
+        </article>
+
+        <aside class="progress-card is-cancelled" data-reveal>
+          <p class="progress-kicker">Durum</p>
+          <h2 class="progress-title">Aktif geliştirme bulunmuyor</h2>
+
+          <div class="progress-head">
+            <p class="progress-value is-text">İptal</p>
+            <p class="progress-caption">mevcut plan içinde yeniden başlatılmayan arşiv proje</p>
+          </div>
+
+          <ul class="progress-points">
+            <li>Mağaza yayını veya yeni sürüm planı bulunmuyor</li>
+            <li>Eski ürün notu arşiv kaydı olarak korunuyor</li>
+            <li>Fikir ileride farklı bir projeye dönüşürse yeni sayfa ayrı açılacak</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Durum Notları</p>
+          <h2 class="section-title">Projeden kalan kısa kayıtlar</h2>
+        </div>
+        <p class="section-copy">
+          Bu alan, Anılar Müzesi için aktif geliştirme yerine arşiv niteliğinde tutulan kısa bilgi notlarını içerir.
+        </p>
+      </div>
+
+      <div class="notes-grid">
+        <article class="note-card" data-reveal>
+          <p class="note-date">28 Mart 2026</p>
+          <h3>Proje arşiv statüsüne alındı</h3>
+          <ul>
+            <li>Aktif üretim planından çıkarıldı ve geliştirme durduruldu</li>
+            <li>Katalog içinde görünmeye devam etmesi için ayrı durum sayfası bırakıldı</li>
+          </ul>
+        </article>
+
+        <article class="note-card" data-reveal>
+          <p class="note-date">24 Mart 2026</p>
+          <h3>Arşiv notu korunacak şekilde düzenlendi</h3>
+          <ul>
+            <li>Önceki belge yapısı arşiv kaydı ve durum açıklamasına çevrildi</li>
+            <li>Aktif veri işleme ve yayın akışı bulunmadığı netleştirildi</li>
+          </ul>
+        </article>
+
+        <article class="note-card" data-reveal>
+          <p class="note-date">20 Mart 2026</p>
+          <h3>Konsept hatırlatması saklandı</h3>
+          <ul>
+            <li>Atmosfer ve hikâye duygusunu önceleyen erken dönem oyun fikri olarak kaydedildi</li>
+            <li>İleride farklı bir adla dönerse yeni proje olarak ele alınması planlandı</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="support-layout">
+        <article class="support-card" data-reveal>
+          <p class="section-kicker">Bu Sayfa Ne İçin Var?</p>
+          <h2 class="section-title">İptal edilen proje neden hâlâ listede</h2>
+          <div class="step-list">
+            <div class="step-item">
+              <span class="step-no">01</span>
+              <div>
+                <strong>Durum şeffaflığı</strong>
+                <p>Projeyi katalogdan tamamen silmek yerine, artık aktif olmadığını açık şekilde göstermek için bu kayıt tutulur.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-no">02</span>
+              <div>
+                <strong>Arşiv erişimi</strong>
+                <p>Eski proje adıyla ilgili bağlantılar açıldığında kullanıcı doğrudan güncel durumu görebilir.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-no">03</span>
+              <div>
+                <strong>Yeni proje ayrımı</strong>
+                <p>Bu fikir farklı biçimde geri dönerse mevcut kayıt güncellenmez; yeni ürün için ayrı sayfa açılır.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="iletisim" class="contact-card-panel" data-reveal>
+          <p class="section-kicker">İletişim</p>
+          <h2 class="section-title">Arşiv kaydı ve proje durumu hakkında</h2>
+          <p class="section-copy">
+            Anılar Müzesi ile ilgili arşiv notu, eski proje kaydı veya genel sorular için aşağıdaki kanalları kullanabilirsin.
+          </p>
+
+          <div class="contact-grid">
+            <a class="contact-card" href="mailto:g-soft@outlook.com.tr">
+              <span class="contact-label">E-posta</span>
+              <strong>g-soft@outlook.com.tr</strong>
+              <span>Arşiv kaydı ve genel iletişim</span>
+            </a>
+
+            <a class="contact-card" href="https://github.com/altusparati" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">GitHub</span>
+              <strong>@altusparati</strong>
+              <span>Proje kayıtları ve açık geliştirme akışı</span>
+            </a>
+          </div>
+
+          <div class="closing-banner">
+            <p>Bu sayfa aktif geliştirme yerine arşiv statüsünü göstermek için korunur.</p>
+            <a class="button button-primary" href="#top">Yukarı çık</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p><strong>© G-SOFT</strong> <span id="year">2026</span> · Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

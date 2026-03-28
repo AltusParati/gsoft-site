@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G-SOFT | Ash &amp; Signal</title>
+  <meta
+    name="description"
+    content="Ash & Signal için gelişim notları, ilerleme yüzdesi ve en son yapılan işler G-SOFT oyun detay sayfasında yer alır."
+  />
+  <meta name="theme-color" content="#e7eef6" />
+  <link rel="icon" type="image/png" href="images/favicon.png?v=20260326" />
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js-ready');
+      try {
+        var storedTheme = window.localStorage.getItem('gsoft-theme');
+        var theme = storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      } catch (error) {
+        root.dataset.theme = 'light';
+        root.style.colorScheme = 'light';
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles-desktop.css" media="screen and (min-width: 861px)" />
+  <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 860px)" />
+</head>
+<body id="top">
+  <div class="ambient-layer" aria-hidden="true">
+    <span class="ambient-orb orb-a"></span>
+    <span class="ambient-orb orb-b"></span>
+    <span class="ambient-orb orb-c"></span>
+    <span class="ambient-beam beam-a"></span>
+    <span class="ambient-beam beam-b"></span>
+    <span class="ambient-noise"></span>
+    <span class="ambient-panel panel-left"></span>
+    <span class="ambient-panel panel-right"></span>
+    <span class="ambient-trace trace-a"></span>
+    <span class="ambient-trace trace-b"></span>
+    <span class="ambient-tag tag-a">build()</span>
+    <span class="ambient-tag tag-b">progress.json</span>
+    <span class="ambient-route route-core"></span>
+    <span class="ambient-route route-edge"></span>
+    <span class="ambient-node node-client">client</span>
+    <span class="ambient-node node-api">api</span>
+    <span class="ambient-node node-db">db</span>
+    <span class="ambient-node node-deploy">deploy</span>
+    <span class="ambient-node node-release">release</span>
+  </div>
+
+  <div class="topbar-shell">
+    <div class="container">
+      <header class="topbar" data-reveal>
+        <a class="brand" href="oyunlarimiz.html" aria-label="Oyun sayfasına dön">
+          <span class="brand-mark">
+            <img src="images/logo1.png?v=20260326" data-themed-logo data-logo-light="images/logo1.png?v=20260326" data-logo-dark="images/koyumodlogo.png?v=20260326b" alt="G-SOFT logosu" />
+          </span>
+          <span class="brand-copy">
+            <strong>G-SOFT</strong>
+            <small>oyun detayları, sürüm notları ve geliştirme akışı</small>
+          </span>
+        </a>
+
+        <div class="topbar-tools">
+          <nav class="menu menu-product-nav" aria-label="Ürün sayfaları">
+            <a href="index.html">Anasayfa</a>
+            <a href="uygulamalarimiz.html">Uygulamalarımız</a>
+            <a class="is-current" href="oyunlarimiz.html" aria-current="page">Oyunlarımız</a>
+          </nav>
+
+          <a class="lang-toggle" href="ash-signal-detail.html" lang="en" aria-label="Switch to English">EN</a>
+
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+            <span class="theme-toggle-dot" aria-hidden="true"></span>
+            <span data-theme-label>Görünüm: Açık</span>
+          </button>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main>
+    <section class="section container">
+      <div class="detail-layout">
+        <article class="detail-summary" data-reveal>
+          <p class="section-kicker">Oyun Detayı</p>
+          <h1 class="detail-title">Ash &amp; Signal</h1>
+          <p class="detail-lede">
+            Terk edilmiş araştırma alanları, karanlık bataklıklar, hurda bölgeleri ve sessiz adalar boyunca ilerlediğin; kaynak toplayıp yapıları onardığın ve her bölümü adım adım yaşayan bir yerleşkeye dönüştürdüğün 3D mobil bir inşa ve keşif oyunu.
+          </p>
+
+          <div class="detail-stat-row" aria-label="Ash &amp; Signal özet bilgileri">
+            <span class="detail-pill">Geçici isim</span>
+            <span class="detail-pill">3D mobil</span>
+            <span class="detail-pill">İnşa ve keşif</span>
+            <span class="detail-pill">Bölüm bazlı dönüşüm</span>
+          </div>
+
+          <div class="detail-actions">
+            <span class="button button-disabled" aria-disabled="true">Mağaza sayfası hazırlanıyor</span>
+            <a class="button button-secondary" href="oyunlarimiz.html">Oyun listesine dön</a>
+          </div>
+        </article>
+
+        <aside class="progress-card" data-reveal data-progress-target="27">
+          <p class="progress-kicker">Gelişim Oranı</p>
+          <h2 class="progress-title">İlk oynanabilir sürüme doğru ilerleme</h2>
+
+          <div class="progress-head">
+            <p class="progress-value" data-progress-value>0%</p>
+            <p class="progress-caption">mevcut iç hedefe göre toplam ilerleme</p>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <span class="progress-fill" data-progress-fill></span>
+          </div>
+
+          <ul class="progress-points">
+            <li>Temel kaynak toplama ve yapı onarma döngüsü tanımlandı</li>
+            <li>İlk bölge setleri ve açılım sırası planlandı</li>
+            <li>Yerleşkenin görsel dönüşüm ritmi prototipleniyor</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Gelişim Notları</p>
+          <h2 class="section-title">En son yapılanlar</h2>
+        </div>
+        <p class="section-copy">
+          Bu alan, Ash &amp; Signal için son tasarım kararlarını, oyun döngüsündeki ilerlemeyi ve sürüm öncesi notları toplar.
+        </p>
+      </div>
+
+      <div class="notes-grid">
+        <article class="note-card" data-reveal>
+          <p class="note-date">28 Mart 2026</p>
+          <h3>Çekirdek oyun döngüsü netleşti</h3>
+          <ul>
+            <li>Kaynak topla, yapıyı onar, alanı genişlet akışı sabitlendi</li>
+            <li>Her yapının yeni sistem veya yeni kaynak açması ana kural olarak belirlendi</li>
+          </ul>
+        </article>
+
+        <article class="note-card" data-reveal>
+          <p class="note-date">26 Mart 2026</p>
+          <h3>Bölge tipleri ve bölüm sırası tanımlandı</h3>
+          <ul>
+            <li>Araştırma alanı, karanlık bataklık, hurda bölgesi ve terk edilmiş ada çekirdeğe alındı</li>
+            <li>Her bölümün kendi görsel dönüşüm hissiyle ayrışması hedeflendi</li>
+          </ul>
+        </article>
+
+        <article class="note-card" data-reveal>
+          <p class="note-date">24 Mart 2026</p>
+          <h3>Yerleşke büyüme hissi kuruldu</h3>
+          <ul>
+            <li>Kamp ateşinden kolonilere ve canlı liman kasabalarına uzanan ilerleme omurgası yazıldı</li>
+            <li>Oyuncunun “sırada ne açılacak?” merakı üzerine kurulu açılım yapısı planlandı</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="support-layout">
+        <article class="support-card" data-reveal>
+          <p class="section-kicker">Oynanış Özeti</p>
+          <h2 class="section-title">Bölüm akışı nasıl çalışıyor</h2>
+          <div class="step-list">
+            <div class="step-item">
+              <span class="step-no">01</span>
+              <div>
+                <strong>Kaynakları topla</strong>
+                <p>Çevreden malzeme, enerji ve üretim zinciri için gereken temel öğeleri biriktir.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-no">02</span>
+              <div>
+                <strong>Yapıları onar</strong>
+                <p>Harabeye dönmüş alanları yeniden ayağa kaldır ve yeni üretim noktalarının kilidini aç.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-no">03</span>
+              <div>
+                <strong>Bölgeyi canlandır</strong>
+                <p>Her yeni katmanla boş görünen dünya çalışan ve yaşayan bir yerleşkeye dönüşsün.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="iletisim" class="contact-card-panel" data-reveal>
+          <p class="section-kicker">İletişim</p>
+          <h2 class="section-title">Oyunla ilgili geri bildirim ve iş birliği</h2>
+          <p class="section-copy">
+            Ash &amp; Signal için geri bildirim, tasarım görüşü veya teknik iş birliği taleplerini aşağıdaki kanallardan iletebilirsin.
+          </p>
+
+          <div class="contact-grid">
+            <a class="contact-card" href="mailto:g-soft@outlook.com.tr">
+              <span class="contact-label">E-posta</span>
+              <strong>g-soft@outlook.com.tr</strong>
+              <span>Oyun geri bildirimleri ve genel iletişim</span>
+            </a>
+
+            <a class="contact-card" href="https://github.com/altusparati" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">GitHub</span>
+              <strong>@altusparati</strong>
+              <span>Geliştirme notları ve açık proje akışı</span>
+            </a>
+          </div>
+
+          <div class="closing-banner">
+            <p>Yeni görseller, mağaza bağlantısı ve gelişim notları burada düzenli olarak yenilenecek.</p>
+            <a class="button button-primary" href="#top">Yukarı çık</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p><strong>© G-SOFT</strong> <span id="year">2026</span> · Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

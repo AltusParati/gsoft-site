@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G-SOFT | Ash &amp; Signal</title>
+  <meta
+    name="description"
+    content="Progress notes, completion percentage, and latest work for Ash & Signal are collected on the G-SOFT game detail page."
+  />
+  <meta name="theme-color" content="#e7eef6" />
+  <link rel="icon" type="image/png" href="images/favicon.png?v=20260326" />
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js-ready');
+      try {
+        var storedTheme = window.localStorage.getItem('gsoft-theme');
+        var theme = storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      } catch (error) {
+        root.dataset.theme = 'light';
+        root.style.colorScheme = 'light';
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles-desktop.css" media="screen and (min-width: 861px)" />
+  <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 860px)" />
+</head>
+<body id="top">
+  <div class="ambient-layer" aria-hidden="true">
+    <span class="ambient-orb orb-a"></span>
+    <span class="ambient-orb orb-b"></span>
+    <span class="ambient-orb orb-c"></span>
+    <span class="ambient-beam beam-a"></span>
+    <span class="ambient-beam beam-b"></span>
+    <span class="ambient-noise"></span>
+    <span class="ambient-panel panel-left"></span>
+    <span class="ambient-panel panel-right"></span>
+    <span class="ambient-trace trace-a"></span>
+    <span class="ambient-trace trace-b"></span>
+    <span class="ambient-tag tag-a">build()</span>
+    <span class="ambient-tag tag-b">progress.json</span>
+    <span class="ambient-route route-core"></span>
+    <span class="ambient-route route-edge"></span>
+    <span class="ambient-node node-client">client</span>
+    <span class="ambient-node node-api">api</span>
+    <span class="ambient-node node-db">db</span>
+    <span class="ambient-node node-deploy">deploy</span>
+    <span class="ambient-node node-release">release</span>
+  </div>
+
+  <div class="topbar-shell">
+    <div class="container">
+      <header class="topbar" data-reveal>
+        <a class="brand" href="games.html" aria-label="Back to games page">
+          <span class="brand-mark">
+            <img src="images/logo1.png?v=20260326" data-themed-logo data-logo-light="images/logo1.png?v=20260326" data-logo-dark="images/koyumodlogo.png?v=20260326b" alt="G-SOFT logo" />
+          </span>
+          <span class="brand-copy">
+            <strong>G-SOFT</strong>
+            <small>game details, progress notes, and development flow</small>
+          </span>
+        </a>
+
+        <div class="topbar-tools">
+          <nav class="menu menu-product-nav" aria-label="Product pages">
+            <a href="index-en.html">Home</a>
+            <a href="apps.html">Our Apps</a>
+            <a class="is-current" href="games.html" aria-current="page">Our Games</a>
+          </nav>
+
+          <a class="lang-toggle" href="ash-signal-detay.html" lang="tr" aria-label="Switch to Turkish">TR</a>
+
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+            <span class="theme-toggle-dot" aria-hidden="true"></span>
+            <span data-theme-label>Theme: Light</span>
+          </button>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main>
+    <section class="section container">
+      <div class="detail-layout">
+        <article class="detail-summary" data-reveal>
+          <p class="section-kicker">Game Detail</p>
+          <h1 class="detail-title">Ash &amp; Signal</h1>
+          <p class="detail-lede">
+            A 3D mobile build-and-explore game where the player moves through ruined research grounds, dark marshes, scrap fields, and abandoned islands, gathering resources, repairing structures, and turning each dead region into a living settlement.
+          </p>
+
+          <div class="detail-stat-row" aria-label="Ash &amp; Signal summary">
+            <span class="detail-pill">Temporary title</span>
+            <span class="detail-pill">3D mobile</span>
+            <span class="detail-pill">Build and explore</span>
+            <span class="detail-pill">Stage-based restoration</span>
+          </div>
+
+          <div class="detail-actions">
+            <span class="button button-disabled" aria-disabled="true">Store page in preparation</span>
+            <a class="button button-secondary" href="games.html">Back to games</a>
+          </div>
+        </article>
+
+        <aside class="progress-card" data-reveal data-progress-target="27">
+          <p class="progress-kicker">Completion Rate</p>
+          <h2 class="progress-title">Progress toward the first playable milestone</h2>
+
+          <div class="progress-head">
+            <p class="progress-value" data-progress-value>0%</p>
+            <p class="progress-caption">overall progress against the current internal target</p>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <span class="progress-fill" data-progress-fill></span>
+          </div>
+
+          <ul class="progress-points">
+            <li>The core gather, repair, and expand loop is now defined</li>
+            <li>The first region set and unlock order are mapped</li>
+            <li>The visual transformation rhythm of the settlement is under prototype</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Development Notes</p>
+          <h2 class="section-title">Latest work</h2>
+        </div>
+        <p class="section-copy">
+          This area collects the latest design decisions, gameplay progress, and pre-release notes for Ash &amp; Signal.
+        </p>
+      </div>
+
+      <div class="notes-grid">
+        <article class="note-card" data-reveal>
+          <p class="note-date">March 28, 2026</p>
+          <h3>The core gameplay loop was locked</h3>
+          <ul>
+            <li>The gather, repair, and expand structure was finalized as the main rhythm</li>
+            <li>Each new structure now opens a system, area, or resource by design</li>
+          </ul>
+        </article>
+
+        <article class="note-card" data-reveal>
+          <p class="note-date">March 26, 2026</p>
+          <h3>Region types and stage order were outlined</h3>
+          <ul>
+            <li>Research grounds, dark marshes, scrap zones, and abandoned islands were chosen as the first world set</li>
+            <li>Each stage is planned to carry its own restoration identity</li>
+          </ul>
+        </article>
+
+        <article class="note-card" data-reveal>
+          <p class="note-date">March 24, 2026</p>
+          <h3>The settlement growth fantasy was framed</h3>
+          <ul>
+            <li>The journey arc now grows from a campfire into colonies, mechanical cities, and living harbor towns</li>
+            <li>The pacing is built around the player's curiosity about what unlocks next</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="support-layout">
+        <article class="support-card" data-reveal>
+          <p class="section-kicker">Gameplay Outline</p>
+          <h2 class="section-title">How the stage flow works</h2>
+          <div class="step-list">
+            <div class="step-item">
+              <span class="step-no">01</span>
+              <div>
+                <strong>Gather resources</strong>
+                <p>Collect materials, energy, and production inputs from the environment.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-no">02</span>
+              <div>
+                <strong>Repair the structures</strong>
+                <p>Bring ruined spaces back online and unlock the next production chain.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-no">03</span>
+              <div>
+                <strong>Revive the region</strong>
+                <p>Turn an empty area into a working settlement layer by layer.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="iletisim" class="contact-card-panel" data-reveal>
+          <p class="section-kicker">Contact</p>
+          <h2 class="section-title">Feedback and collaboration</h2>
+          <p class="section-copy">
+            Use the channels below for feedback, design discussion, or technical collaboration around Ash &amp; Signal.
+          </p>
+
+          <div class="contact-grid">
+            <a class="contact-card" href="mailto:g-soft@outlook.com.tr">
+              <span class="contact-label">Email</span>
+              <strong>g-soft@outlook.com.tr</strong>
+              <span>Game feedback and general contact</span>
+            </a>
+
+            <a class="contact-card" href="https://github.com/altusparati" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">GitHub</span>
+              <strong>@altusparati</strong>
+              <span>Development notes and open project flow</span>
+            </a>
+          </div>
+
+          <div class="closing-banner">
+            <p>New visuals, store links, and development notes will be added here over time.</p>
+            <a class="button button-primary" href="#top">Back to top</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p><strong>© G-SOFT</strong> <span id="year">2026</span> · All rights reserved.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

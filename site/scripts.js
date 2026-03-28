@@ -7,6 +7,7 @@ const themedLogoImages = document.querySelectorAll("[data-themed-logo]");
 const yearElement = document.getElementById("year");
 const topbarShell = document.querySelector(".topbar-shell");
 const revealItems = document.querySelectorAll("[data-reveal]");
+const progressBlocks = document.querySelectorAll("[data-progress-target]");
 const storageKey = "gsoft-theme";
 const pageLanguage = root.lang === "en" ? "en" : "tr";
 
@@ -126,6 +127,62 @@ const updateTopbarState = () => {
 
 updateTopbarState();
 window.addEventListener("scroll", updateTopbarState, { passive: true });
+
+const animateProgressBlock = (block) => {
+  if (block.dataset.progressAnimated === "true") {
+    return;
+  }
+
+  block.dataset.progressAnimated = "true";
+
+  const target = Math.max(0, Math.min(100, Number(block.dataset.progressTarget) || 0));
+  const fill = block.querySelector("[data-progress-fill]");
+  const value = block.querySelector("[data-progress-value]");
+  const duration = 1400;
+  const start = performance.now();
+
+  const tick = (timestamp) => {
+    const elapsed = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - elapsed, 3);
+    const current = Math.round(target * eased);
+
+    if (fill) {
+      fill.style.width = `${current}%`;
+    }
+
+    if (value) {
+      value.textContent = `${current}%`;
+    }
+
+    if (elapsed < 1) {
+      window.requestAnimationFrame(tick);
+    }
+  };
+
+  window.requestAnimationFrame(tick);
+};
+
+if ("IntersectionObserver" in window && progressBlocks.length > 0) {
+  const progressObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        animateProgressBlock(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.35,
+    }
+  );
+
+  progressBlocks.forEach((block) => progressObserver.observe(block));
+} else {
+  progressBlocks.forEach((block) => animateProgressBlock(block));
+}
 
 if ("IntersectionObserver" in window && revealItems.length > 0) {
   const revealObserver = new IntersectionObserver(
