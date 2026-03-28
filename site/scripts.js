@@ -14,6 +14,7 @@ const pageLanguage = root.lang === "en" ? "en" : "tr";
 const desktopLiveCodeQuery = window.matchMedia("(min-width: 861px)");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const liveCodeTimers = new Set();
+let liveCodeLayer = null;
 
 const liveCodeSnippets = [
   'const sector = world.revive("north-marsh");',
@@ -37,9 +38,72 @@ const liveCodeSnippets = [
 ];
 
 const liveCodePanels = [
-  { className: "is-alpha", label: "ghost.cache", accent: "#4ed0dc" },
-  { className: "is-beta", label: "sector.loop", accent: "#7ea5ff" },
-  { className: "is-gamma", label: "archive.route", accent: "#f2a56d" },
+  {
+    label: "ghost.cache",
+    accent: "#4ed0dc",
+    top: "6%",
+    left: "4vw",
+    width: "20.5rem",
+    rotate: "-5deg",
+    rotateAlt: "-2deg",
+    shift: "-18px",
+    duration: "24s",
+  },
+  {
+    label: "sector.loop",
+    accent: "#78aef7",
+    top: "18%",
+    right: "4vw",
+    width: "19.75rem",
+    rotate: "4deg",
+    rotateAlt: "1deg",
+    shift: "16px",
+    duration: "27s",
+  },
+  {
+    label: "sync.frame",
+    accent: "#4ed0dc",
+    top: "35%",
+    left: "7vw",
+    width: "21rem",
+    rotate: "-3deg",
+    rotateAlt: "0deg",
+    shift: "-14px",
+    duration: "26s",
+  },
+  {
+    label: "build.trace",
+    accent: "#f2a56d",
+    top: "51%",
+    right: "7vw",
+    width: "18.75rem",
+    rotate: "5deg",
+    rotateAlt: "2deg",
+    shift: "18px",
+    duration: "29s",
+  },
+  {
+    label: "archive.route",
+    accent: "#7ea5ff",
+    top: "68%",
+    left: "12vw",
+    width: "20rem",
+    rotate: "-4deg",
+    rotateAlt: "-1deg",
+    shift: "-16px",
+    duration: "25s",
+  },
+  {
+    label: "release.map",
+    accent: "#4ed0dc",
+    top: "83%",
+    right: "10vw",
+    width: "19rem",
+    rotate: "3deg",
+    rotateAlt: "0deg",
+    shift: "12px",
+    duration: "30s",
+  },
 ];
 
 const themeCopy = {
@@ -173,9 +237,9 @@ const clearLiveCodeLayer = () => {
   liveCodeTimers.forEach((id) => window.clearTimeout(id));
   liveCodeTimers.clear();
 
-  const existingLayer = document.querySelector(".live-code-layer");
-  if (existingLayer) {
-    existingLayer.remove();
+  if (liveCodeLayer) {
+    liveCodeLayer.remove();
+    liveCodeLayer = null;
   }
 };
 
@@ -232,8 +296,22 @@ const runLiveCodePanel = (panel, seed = 0) => {
 
 const createLiveCodePanel = (config) => {
   const panel = document.createElement("div");
-  panel.className = `live-code-panel ${config.className}`;
+  panel.className = "live-code-panel";
   panel.style.setProperty("--panel-accent", config.accent);
+  panel.style.setProperty("--panel-rotate", config.rotate);
+  panel.style.setProperty("--panel-rotate-alt", config.rotateAlt);
+  panel.style.setProperty("--panel-shift", config.shift);
+  panel.style.setProperty("--panel-duration", config.duration);
+  panel.style.width = config.width;
+  panel.style.top = config.top;
+
+  if (config.left) {
+    panel.style.left = config.left;
+  }
+
+  if (config.right) {
+    panel.style.right = config.right;
+  }
 
   const bar = document.createElement("div");
   bar.className = "live-code-bar";
@@ -261,30 +339,47 @@ const createLiveCodePanel = (config) => {
   return panel;
 };
 
+const updateLiveCodeGeometry = () => {
+  if (!liveCodeLayer) {
+    return;
+  }
+
+  const pageHeight = Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight,
+    window.innerHeight
+  );
+
+  liveCodeLayer.style.height = `${pageHeight}px`;
+};
+
 const initLiveCodeLayer = () => {
   if (!ambientLayer || !desktopLiveCodeQuery.matches || reducedMotionQuery.matches) {
     return;
   }
 
-  if (document.querySelector(".live-code-layer")) {
+  if (liveCodeLayer) {
+    updateLiveCodeGeometry();
     return;
   }
 
-  const layer = document.createElement("div");
-  layer.className = "live-code-layer";
-  layer.setAttribute("aria-hidden", "true");
+  liveCodeLayer = document.createElement("div");
+  liveCodeLayer.className = "live-code-layer";
+  liveCodeLayer.setAttribute("aria-hidden", "true");
 
   liveCodePanels.forEach((config, index) => {
     const panel = createLiveCodePanel(config);
-    layer.appendChild(panel);
+    liveCodeLayer.appendChild(panel);
     runLiveCodePanel(panel, index + 1);
   });
 
-  document.body.appendChild(layer);
+  document.body.appendChild(liveCodeLayer);
+  updateLiveCodeGeometry();
 };
 
 const syncLiveCodeLayer = () => {
   if (!ambientLayer) {
+    clearLiveCodeLayer();
     return;
   }
 
@@ -305,6 +400,9 @@ if (typeof desktopLiveCodeQuery.addEventListener === "function") {
 if (typeof reducedMotionQuery.addEventListener === "function") {
   reducedMotionQuery.addEventListener("change", syncLiveCodeLayer);
 }
+
+window.addEventListener("resize", syncLiveCodeLayer, { passive: true });
+window.addEventListener("load", syncLiveCodeLayer);
 
 const animateProgressBlock = (block) => {
   if (block.dataset.progressAnimated === "true") {

@@ -61,6 +61,7 @@ body {
   margin: 0;
   min-height: 100vh;
   position: relative;
+  isolation: isolate;
   font-family: "Aptos", "Segoe UI", Tahoma, Arial, sans-serif;
   color: var(--ink);
   line-height: 1.6;
@@ -420,12 +421,13 @@ img {
 main,
 .footer {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .live-code-layer {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  inset: 0 0 auto;
+  height: 100%;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
@@ -433,26 +435,33 @@ main,
 
 .live-code-panel {
   --panel-accent: var(--accent);
+  --panel-rotate: 0deg;
+  --panel-rotate-alt: 2deg;
+  --panel-shift: -18px;
+  --panel-duration: 24s;
   position: absolute;
-  width: clamp(18rem, 23vw, 22rem);
-  padding: 1rem 1rem 1.1rem;
-  border-radius: 1.5rem;
-  border: 1px solid rgba(78, 208, 220, 0.18);
+  width: clamp(18rem, 21vw, 22rem);
+  padding: 0.92rem 1rem 1.04rem;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(78, 208, 220, 0.12);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(234, 243, 250, 0.42)),
-    linear-gradient(180deg, rgba(78, 208, 220, 0.06), transparent 58%);
-  box-shadow: 0 20px 46px rgba(17, 38, 59, 0.12);
-  backdrop-filter: blur(8px);
-  opacity: 0.5;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(236, 244, 250, 0.18)),
+    linear-gradient(180deg, rgba(78, 208, 220, 0.045), transparent 58%);
+  box-shadow: 0 12px 28px rgba(17, 38, 59, 0.08);
+  backdrop-filter: blur(6px);
+  opacity: 0.38;
+  overflow: hidden;
+  transform: rotate(var(--panel-rotate));
+  animation: live-code-float var(--panel-duration) ease-in-out infinite;
 }
 
 :root[data-theme="dark"] .live-code-panel {
-  border-color: rgba(78, 208, 220, 0.16);
+  border-color: rgba(78, 208, 220, 0.12);
   background:
-    linear-gradient(180deg, rgba(10, 21, 33, 0.88), rgba(12, 25, 39, 0.58)),
-    linear-gradient(180deg, rgba(78, 208, 220, 0.08), transparent 64%);
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.26);
-  opacity: 0.72;
+    linear-gradient(180deg, rgba(9, 20, 31, 0.64), rgba(10, 22, 35, 0.24)),
+    linear-gradient(180deg, rgba(78, 208, 220, 0.06), transparent 64%);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+  opacity: 0.46;
 }
 
 .live-code-panel::before {
@@ -461,27 +470,6 @@ main,
   inset: 0 0 auto;
   height: 2px;
   background: linear-gradient(90deg, var(--panel-accent), transparent 78%);
-}
-
-.live-code-panel.is-alpha {
-  top: 18vh;
-  left: 4vw;
-  transform: rotate(-5deg);
-  animation: live-code-float-a 22s ease-in-out infinite;
-}
-
-.live-code-panel.is-beta {
-  top: 14vh;
-  right: 4.8vw;
-  transform: rotate(6deg);
-  animation: live-code-float-b 24s ease-in-out infinite;
-}
-
-.live-code-panel.is-gamma {
-  bottom: 10vh;
-  left: 12vw;
-  transform: rotate(-3deg);
-  animation: live-code-float-c 26s ease-in-out infinite;
 }
 
 .live-code-bar {
@@ -506,42 +494,47 @@ main,
 }
 
 .live-code-label {
-  font-family: Consolas, "Cascadia Code", "Courier New", monospace;
-  font-size: 0.72rem;
+  font-family: "Consolas", "Lucida Console", "Courier New", monospace;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(33, 78, 90, 0.72);
+  color: rgba(43, 87, 98, 0.54);
 }
 
 :root[data-theme="dark"] .live-code-label {
-  color: rgba(147, 222, 232, 0.76);
+  font-family: "Cascadia Code", "Cascadia Mono", "Consolas", monospace;
+  color: rgba(137, 211, 222, 0.54);
 }
 
 .live-code-body {
   display: grid;
-  gap: 0.46rem;
+  gap: 0.38rem;
 }
 
 .live-code-line {
-  min-height: 1.12rem;
-  color: rgba(35, 83, 97, 0.58);
-  font-family: Consolas, "Cascadia Code", "Courier New", monospace;
-  font-size: 0.78rem;
-  line-height: 1.34;
-  letter-spacing: -0.02em;
+  display: block;
+  min-height: 1.02rem;
+  max-width: 100%;
+  color: rgba(40, 79, 91, 0.34);
+  font-family: "Consolas", "Lucida Console", "Courier New", monospace;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
   white-space: nowrap;
   overflow: hidden;
-  text-shadow: 0 0 8px rgba(78, 208, 220, 0.08);
+  text-overflow: clip;
+  text-shadow: 0 0 6px rgba(78, 208, 220, 0.03);
 }
 
 :root[data-theme="dark"] .live-code-line {
-  color: rgba(148, 223, 233, 0.6);
-  text-shadow: 0 0 10px rgba(78, 208, 220, 0.18);
+  color: rgba(126, 190, 202, 0.34);
+  font-family: "Cascadia Code", "Cascadia Mono", "Consolas", monospace;
+  text-shadow: 0 0 8px rgba(78, 208, 220, 0.08);
 }
 
 .live-code-line.is-typing {
-  color: color-mix(in srgb, var(--panel-accent) 80%, white 20%);
+  color: color-mix(in srgb, var(--panel-accent) 64%, #2b3e48 36%);
 }
 
 .live-code-line::after {
@@ -557,8 +550,12 @@ main,
 
 .live-code-line.is-typing::after {
   border-color: currentColor;
-  opacity: 0.95;
+  opacity: 0.84;
   animation: live-code-cursor 1s steps(1, end) infinite;
+}
+
+:root[data-theme="dark"] .live-code-line.is-typing {
+  color: color-mix(in srgb, var(--panel-accent) 76%, white 24%);
 }
 
 @keyframes live-code-cursor {
@@ -567,36 +564,14 @@ main,
   }
 }
 
-@keyframes live-code-float-a {
+@keyframes live-code-float {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) rotate(-5deg);
+    transform: translate3d(0, 0, 0) rotate(var(--panel-rotate));
   }
 
   50% {
-    transform: translate3d(0, -18px, 0) rotate(-2deg);
-  }
-}
-
-@keyframes live-code-float-b {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(6deg);
-  }
-
-  50% {
-    transform: translate3d(0, 16px, 0) rotate(3deg);
-  }
-}
-
-@keyframes live-code-float-c {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(-3deg);
-  }
-
-  50% {
-    transform: translate3d(0, -14px, 0) rotate(0deg);
+    transform: translate3d(0, var(--panel-shift), 0) rotate(var(--panel-rotate-alt));
   }
 }
 
