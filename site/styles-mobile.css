@@ -2751,6 +2751,10 @@ body::after {
   place-items: center;
 }
 
+.gallery-lightbox[hidden] {
+  display: none !important;
+}
+
 .gallery-lightbox-backdrop {
   position: absolute;
   inset: 0;
