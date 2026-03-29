@@ -4,6 +4,7 @@ root.classList.add("js-ready");
 const themeMeta = document.querySelector('meta[name="theme-color"]');
 const themeButtons = document.querySelectorAll("[data-theme-toggle]");
 const themedLogoImages = document.querySelectorAll("[data-themed-logo]");
+const galleryShots = document.querySelectorAll("[data-gallery-shot]");
 const yearElement = document.getElementById("year");
 const topbarShell = document.querySelector(".topbar-shell");
 const ambientLayer = document.querySelector(".ambient-layer");
@@ -222,6 +223,35 @@ const updateTopbarState = () => {
 
 updateTopbarState();
 window.addEventListener("scroll", updateTopbarState, { passive: true });
+
+galleryShots.forEach((shot) => {
+  const frame = shot.closest(".gallery-preview");
+  if (!frame) {
+    return;
+  }
+
+  const markLoaded = () => {
+    frame.classList.add("has-image");
+    shot.style.display = "block";
+  };
+
+  const markMissing = () => {
+    shot.style.display = "none";
+    frame.classList.remove("has-image");
+  };
+
+  if (shot.complete) {
+    if (shot.naturalWidth > 0) {
+      markLoaded();
+    } else {
+      markMissing();
+    }
+    return;
+  }
+
+  shot.addEventListener("load", markLoaded, { once: true });
+  shot.addEventListener("error", markMissing, { once: true });
+});
 
 const queueLiveCodeTask = (callback, delay) => {
   const id = window.setTimeout(() => {

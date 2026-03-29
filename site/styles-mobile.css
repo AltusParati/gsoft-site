@@ -2468,23 +2468,44 @@ body::after {
 }
 
 .gallery-preview {
-  min-height: 200px;
+  position: relative;
+  width: min(100%, 260px);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
   border-radius: 20px;
   border: 1px solid var(--line);
   background:
     linear-gradient(180deg, rgba(78, 208, 220, 0.08), transparent 70%),
     var(--surface-soft);
+  overflow: hidden;
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 18px;
+  padding: 16px;
 }
 
-.gallery-preview img {
+.gallery-shot {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.gallery-fallback {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.gallery-preview.has-image .gallery-fallback {
+  display: none;
+}
+
+.gallery-fallback img {
   width: 76px;
   height: 76px;
   object-fit: contain;
-  margin-bottom: 12px;
 }
 
 .gallery-card h3 {
