@@ -2801,7 +2801,10 @@ body::after {
 }
 
 :root[data-theme="dark"] .catalog-button-primary {
+  background: linear-gradient(135deg, var(--accent), #7ae1eb);
+  border-color: transparent;
   color: #03161b;
+  box-shadow: 0 12px 28px rgba(78, 208, 220, 0.18);
 }
 
 :root[data-theme="dark"] .is-cancelled {
