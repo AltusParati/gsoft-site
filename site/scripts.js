@@ -16,6 +16,8 @@ const desktopLiveCodeQuery = window.matchMedia("(min-width: 861px)");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const liveCodeTimers = new Set();
 let liveCodeLayer = null;
+let galleryLightbox = null;
+let galleryLightboxImage = null;
 
 const liveCodeSnippets = [
   'const sector = world.revive("north-marsh");',
@@ -224,6 +226,66 @@ const updateTopbarState = () => {
 updateTopbarState();
 window.addEventListener("scroll", updateTopbarState, { passive: true });
 
+const ensureGalleryLightbox = () => {
+  if (galleryLightbox || galleryShots.length === 0) {
+    return;
+  }
+
+  const closeLabel = pageLanguage === "en" ? "Close image" : "Gorseli kapat";
+
+  galleryLightbox = document.createElement("div");
+  galleryLightbox.className = "gallery-lightbox";
+  galleryLightbox.hidden = true;
+  galleryLightbox.innerHTML = `
+    <div class="gallery-lightbox-backdrop" data-gallery-close></div>
+    <div class="gallery-lightbox-dialog" role="dialog" aria-modal="true">
+      <button class="gallery-lightbox-close" type="button" aria-label="${closeLabel}" data-gallery-close>×</button>
+      <img class="gallery-lightbox-image" alt="" />
+    </div>
+  `;
+
+  document.body.appendChild(galleryLightbox);
+  galleryLightboxImage = galleryLightbox.querySelector(".gallery-lightbox-image");
+
+  galleryLightbox.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLElement && event.target.hasAttribute("data-gallery-close")) {
+      closeGalleryLightbox();
+    }
+  });
+};
+
+const openGalleryLightbox = (src, alt) => {
+  ensureGalleryLightbox();
+  if (!galleryLightbox || !galleryLightboxImage) {
+    return;
+  }
+
+  galleryLightboxImage.src = src;
+  galleryLightboxImage.alt = alt;
+  galleryLightbox.hidden = false;
+  root.classList.add("gallery-lightbox-open");
+};
+
+const closeGalleryLightbox = () => {
+  if (!galleryLightbox || galleryLightbox.hidden) {
+    return;
+  }
+
+  galleryLightbox.hidden = true;
+  root.classList.remove("gallery-lightbox-open");
+
+  if (galleryLightboxImage) {
+    galleryLightboxImage.removeAttribute("src");
+    galleryLightboxImage.alt = "";
+  }
+};
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeGalleryLightbox();
+  }
+});
+
 galleryShots.forEach((shot) => {
   const frame = shot.closest(".gallery-preview");
   if (!frame) {
@@ -233,9 +295,8 @@ galleryShots.forEach((shot) => {
   const markLoaded = () => {
     frame.classList.add("has-image");
     frame.classList.remove("is-empty");
-    frame.setAttribute("href", shot.currentSrc || shot.src);
-    frame.setAttribute("target", "_blank");
-    frame.setAttribute("rel", "noopener noreferrer");
+    frame.dataset.fullImage = shot.currentSrc || shot.src;
+    frame.tabIndex = 0;
     shot.style.display = "block";
   };
 
@@ -243,10 +304,21 @@ galleryShots.forEach((shot) => {
     shot.style.display = "none";
     frame.classList.remove("has-image");
     frame.classList.add("is-empty");
-    frame.removeAttribute("href");
-    frame.removeAttribute("target");
-    frame.removeAttribute("rel");
+    delete frame.dataset.fullImage;
+    frame.tabIndex = -1;
   };
+
+  if (frame.dataset.galleryBound !== "true") {
+    frame.dataset.galleryBound = "true";
+
+    frame.addEventListener("click", () => {
+      if (frame.classList.contains("is-empty") || !frame.dataset.fullImage) {
+        return;
+      }
+
+      openGalleryLightbox(frame.dataset.fullImage, shot.alt);
+    });
+  }
 
   if (shot.complete) {
     if (shot.naturalWidth > 0) {
