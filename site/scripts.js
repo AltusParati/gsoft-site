@@ -232,12 +232,20 @@ galleryShots.forEach((shot) => {
 
   const markLoaded = () => {
     frame.classList.add("has-image");
+    frame.classList.remove("is-empty");
+    frame.setAttribute("href", shot.currentSrc || shot.src);
+    frame.setAttribute("target", "_blank");
+    frame.setAttribute("rel", "noopener noreferrer");
     shot.style.display = "block";
   };
 
   const markMissing = () => {
     shot.style.display = "none";
     frame.classList.remove("has-image");
+    frame.classList.add("is-empty");
+    frame.removeAttribute("href");
+    frame.removeAttribute("target");
+    frame.removeAttribute("rel");
   };
 
   if (shot.complete) {
