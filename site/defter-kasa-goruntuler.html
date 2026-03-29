@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G-SOFT | Defter Kasa Görüntüler</title>
+  <meta
+    name="description"
+    content="Defter Kasa için uygulama içi görüntüler alanı ve ekran akışı notları burada listelenir."
+  />
+  <meta name="theme-color" content="#e7eef6" />
+  <link rel="icon" type="image/png" href="images/favicon.png?v=20260326" />
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js-ready');
+      try {
+        var storedTheme = window.localStorage.getItem('gsoft-theme');
+        var theme = storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      } catch (error) {
+        root.dataset.theme = 'light';
+        root.style.colorScheme = 'light';
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles-desktop.css" media="screen and (min-width: 861px)" />
+  <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 860px)" />
+</head>
+<body id="top">
+  <div class="ambient-layer" aria-hidden="true">
+    <span class="ambient-orb orb-a"></span>
+    <span class="ambient-orb orb-b"></span>
+    <span class="ambient-orb orb-c"></span>
+    <span class="ambient-beam beam-a"></span>
+    <span class="ambient-beam beam-b"></span>
+    <span class="ambient-noise"></span>
+    <span class="ambient-panel panel-left"></span>
+    <span class="ambient-panel panel-right"></span>
+    <span class="ambient-trace trace-a"></span>
+    <span class="ambient-trace trace-b"></span>
+    <span class="ambient-tag tag-a">screens()</span>
+    <span class="ambient-tag tag-b">gallery.json</span>
+    <span class="ambient-route route-core"></span>
+    <span class="ambient-route route-edge"></span>
+    <span class="ambient-node node-client">client</span>
+    <span class="ambient-node node-api">ui</span>
+    <span class="ambient-node node-db">shots</span>
+    <span class="ambient-node node-deploy">sync</span>
+    <span class="ambient-node node-release">store</span>
+  </div>
+
+  <div class="topbar-shell">
+    <div class="container">
+      <header class="topbar" data-reveal>
+        <a class="brand" href="uygulamalarimiz.html" aria-label="Uygulamalar sayfasına dön">
+          <span class="brand-mark">
+            <img src="images/logo1.png?v=20260326" data-themed-logo data-logo-light="images/logo1.png?v=20260326" data-logo-dark="images/koyumodlogo.png?v=20260326b" alt="G-SOFT logosu" />
+          </span>
+          <span class="brand-copy">
+            <strong>G-SOFT</strong>
+            <small>uygulama görüntüleri ve ekran akışı</small>
+          </span>
+        </a>
+
+        <div class="topbar-tools">
+          <nav class="menu menu-product-nav" aria-label="Ürün sayfaları">
+            <a href="index.html">Anasayfa</a>
+            <a class="is-current" href="uygulamalarimiz.html" aria-current="page">Uygulamalarımız</a>
+            <a href="oyunlarimiz.html">Oyunlarımız</a>
+          </nav>
+
+          <a class="lang-toggle" href="defter-kasa-screens.html" lang="en" aria-label="Switch to English">EN</a>
+
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+            <span class="theme-toggle-dot" aria-hidden="true"></span>
+            <span data-theme-label>Görünüm: Açık</span>
+          </button>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main>
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Uygulama İçi Görüntüler</p>
+          <h1 class="section-title">Defter Kasa ekran akışı</h1>
+        </div>
+        <p class="section-copy">
+          Bu alan, Defter Kasa için uygulama içinde gösterilecek ekran görüntülerinin düzenli biçimde toplanacağı galeri alanıdır.
+          Gerçek görseller eklendiğinde aynı kartlar üzerinden doğrudan güncellenebilir.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-preview">
+            <div>
+              <img src="images/defter-kasa.webp" alt="Defter Kasa yer tutucu" />
+              <strong>Ana panel görüntüsü buraya gelecek</strong>
+            </div>
+          </div>
+          <h3>Ana panel</h3>
+          <p>Günlük bakiye görünümü, hızlı işlem girişi ve özet alanı için ayrılan ekran görüntüsü slotu.</p>
+        </article>
+
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-preview">
+            <div>
+              <img src="images/defter-kasa.webp" alt="Defter Kasa yer tutucu" />
+              <strong>Cari listesi görüntüsü buraya gelecek</strong>
+            </div>
+          </div>
+          <h3>Cari listesi</h3>
+          <p>Müşteri ve borç takibinin listelendiği temel görünüm için ayrılan görsel alan.</p>
+        </article>
+
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-preview">
+            <div>
+              <img src="images/defter-kasa.webp" alt="Defter Kasa yer tutucu" />
+              <strong>İşlem kayıt ekranı buraya gelecek</strong>
+            </div>
+          </div>
+          <h3>İşlem kayıt ekranı</h3>
+          <p>Ödeme, tahsilat ve not girişlerinin gösterileceği ekran görüntüsü için hazırlanan slot.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p><strong>© G-SOFT</strong> <span id="year">2026</span> · Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

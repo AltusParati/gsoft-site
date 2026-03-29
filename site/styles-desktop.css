@@ -2453,6 +2453,96 @@ body::after {
   color: var(--accent);
 }
 
+.catalog-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.catalog-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.catalog-button:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-soft);
+}
+
+.catalog-button-primary {
+  background: linear-gradient(135deg, var(--accent), #7ae1eb);
+  border-color: transparent;
+  color: #06232a;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gallery-card {
+  position: relative;
+  padding: 22px;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.gallery-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent 72%);
+}
+
+.gallery-preview {
+  min-height: 220px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(78, 208, 220, 0.08), transparent 70%),
+    var(--surface-soft);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.gallery-preview img {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+.gallery-card h3 {
+  margin: 18px 0 10px;
+  font-size: 1.16rem;
+}
+
+.gallery-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
 .detail-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
@@ -2630,8 +2720,17 @@ body::after {
 :root[data-theme="dark"] .catalog-card,
 :root[data-theme="dark"] .detail-summary,
 :root[data-theme="dark"] .progress-card,
-:root[data-theme="dark"] .note-card {
+:root[data-theme="dark"] .note-card,
+:root[data-theme="dark"] .gallery-card {
   background: linear-gradient(180deg, rgba(16, 27, 40, 0.96), rgba(18, 31, 46, 0.92));
+}
+
+:root[data-theme="dark"] .catalog-button {
+  background: rgba(17, 32, 47, 0.94);
+}
+
+:root[data-theme="dark"] .catalog-button-primary {
+  color: #03161b;
 }
 
 :root[data-theme="dark"] .is-cancelled {
@@ -2649,7 +2748,8 @@ body::after {
 @media (max-width: 1120px) {
   .catalog-grid,
   .notes-grid,
-  .detail-layout {
+  .detail-layout,
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
 }
